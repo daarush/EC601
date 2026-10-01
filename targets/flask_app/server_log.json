@@ -1,0 +1,1 @@
+{"correlation_id": "b7407a3e-3510-466d-81a1-dc8dd88e38c9", "timestamp": "2026-10-01T19:20:59.662629+00:00", "stages_reached": ["presence_check", "email_format_ok", "blacklist_ok", "username_valid", "query_valid", "sink_reached"], "sink_reached": true, "outcome": "sink_executed"}
