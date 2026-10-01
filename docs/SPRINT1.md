@@ -12,11 +12,11 @@ A security-literate developer or graduate student who wants to understand whethe
 
 | # | Story | Acceptance Criteria |
 |---|-------|---------------------|
-| 1 | As a researcher, I can run the baseline fuzzer against a target with a fixed request budget and get a structured JSON log of every request, response, and server-side event. | `python -m fuzzer run --target flask_app --budget 1000 --seed 42` produces `run_<id>.json` with correlation IDs matching server logs. |
-| 2 | As a researcher, I can swap the intelligence layer (baseline / ML / LLM) via a CLI flag without changing any other code. | `--strategy baseline|ml|llm` switches the mutation/generation engine. Core loop, target adapter, and logger are untouched. |
-| 3 | As a researcher, I can compare two strategy runs on the same target and budget and see a table of efficiency and correctness metrics. | `python -m fuzzer compare run_a.json run_b.json` prints requests-to-first-interesting, total unique interesting responses, and validation-pass rate. |
-| 4 | As a researcher, I can inspect the custom Flask target's server-side log to see exactly which validation stage each payload reached. | Each request's correlation ID maps to a log entry showing: validation stage reached, pass/fail, sink reached (if any). |
-| 5 | As a researcher, I can reproduce any published result by cloning the repo, installing deps, and running one command. | `uv sync && make reproduce RUN_ID=<id>` re-executes the exact configuration and diffs the output against the committed expected result. |
+| 1 | As a researcher, I can run the baseline mutation fuzzer against a target with a fixed request budget and get a structured JSON log of every request and response. | `python -m fuzzer run --target flask_app --budget 1000 --seed 42` produces `run_<id>.json`. |
+| 2 | As a researcher, I can inspect the custom Flask target's server-side log to see exactly which validation stage each payload reached. | Each request's correlation ID maps to a server-side log entry showing: validation stage reached, pass/fail, and sink reachability. |
+| 3 | As a researcher, I have a CLI-driven experiment harness that enforces fixed request budgets, random seeds, and target resets. | The runner guarantees statistical validity and reproducibility before any AI work begins in Sprint 2. |
+| 4 | As a researcher, I can execute the "Cheapest Test" to prove the target's validation logic is complex enough to require AI. | A script runs the baseline + SecLists against the Flask app, and compares it against 10 manual payloads, outputting a saturation report. |
+| 5 | As a researcher, I can reproduce the exact baseline environment on a new machine with one command. | `uv sync` creates the virtual environment and installs all dependencies from `uv.lock` without errors. |
 
 ### 4. Feasibility — Show, Don't Tell
 
@@ -44,7 +44,7 @@ A security-literate developer or graduate student who wants to understand whethe
 
 ### 6. Demo Sentence
 
-> At the end of two weeks I will show the baseline mutation fuzzer and at least one AI-assisted variant (ML or LLM) running end-to-end against the custom Flask target under a fixed 1,000-request budget, producing a side-by-side comparison of requests-to-first-interesting-response and payload validation-pass rate.
+> At the end of two weeks I will show the baseline mutation fuzzer and the instrumented Flask target running end-to-end under a fixed request budget, successfully executing the "cheapest test" to prove the target's validation logic is complex enough to warrant AI integration in Sprint 2.
 
 ### 7. Riskiest Assumption & Its Test
 
