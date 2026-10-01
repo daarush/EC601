@@ -25,8 +25,6 @@ A security-literate developer or graduate student who wants to understand whethe
 - **LLM API access:** API key for OpenAI confirmed working. A test script (`scripts/verify_llm_api.py`) sends one prompt and logs the response and latency. Key stored in `.env`, referenced in `.env.example`.
 - **Python environment:** `pyproject.toml` and `uv.lock` committed; `uv sync` produces a working, perfectly reproducible environment on a clean clone. Verified on a fresh machine.
 
-*(All of the above must be in the repo by the end of this week.)*
-
 ### 5. Tooling
 
 | Tool | Why |
