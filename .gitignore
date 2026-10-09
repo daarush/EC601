@@ -17,4 +17,5 @@ build/
 .idea/
 
 # OS
-.DS_Store
+.DS_Storeserver_log*.json*
+results/
