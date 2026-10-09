@@ -22,7 +22,8 @@ A security-literate developer or graduate student who wants to understand whethe
 
 - **DVWA:** Docker image pulled and verified locally. `docker run --rm -it -p 8080:80 vulnerables/web-dvwa` → login page confirmed. Committed: `scripts/verify_dvwa.sh`.
 - **Custom Flask target:** Skeleton app with two input fields, one validation chain, and one sink, running locally. Server-side logging middleware returns a correlation ID per request. Committed: `targets/flask_app/`.
-- **LLM API access:** API key for OpenAI confirmed working. A test script (`scripts/verify_llm_api.py`) sends one prompt and logs the response and latency. Key stored in `.env`, referenced in `.env.example`.
+- **LLM API access:** API key for OpenAI confirmed working. A test script (`scripts/verify_llm_api.py`) sends one prompt and logs the response and latency. Key stored in `.env`, referenced in `.env.example`. (key pending, script not yet run)
+
 - **Python environment:** `pyproject.toml` and `uv.lock` committed; `uv sync` produces a working, perfectly reproducible environment on a clean clone. Verified on a fresh machine.
 
 ### 5. Tooling
