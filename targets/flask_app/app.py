@@ -1,15 +1,17 @@
 """
-Instrumented Flask target for EC 601 web fuzzing project.
+Instrumented Flask target (Site A) for EC 601 web fuzzing project.
 
 Design rationale:
-- 7 validation stages, each with a DISTINCT error message. This gives the
-  fuzzer (and the LLM variant) a learnable signal about what's required.
-- A "sink" is only reachable after passing ALL stages. Random mutation
-  almost never reaches it; a smart fuzzer might.
-- Every request gets a correlation ID (UUID) returned in the response
-  header AND logged server-side, so we can match fuzzer logs to
-  server-side ground truth.
-- Server-side log is written to `server_log.json` in this directory.
+- Multi-stage validation chain; each rejection has a distinct message.
+- Every request gets a correlation ID (UUID) returned in the
+  X-Correlation-ID header AND logged server-side (ground truth).
+- Log records only stages PASSED; depth = len(stages_passed).
+- A deliberate bug behind all stages (a quote in the query) returns a 500,
+  so the oracle's 5xx / error-signature rules can actually fire.
+- Server-side log is JSONL: server_log.jsonl in this directory.
+
+DESIGN DECISION (frozen): the stage-7 message hints at the format
+("<OPERATION>:<argument>") but does not reveal the literal prefix.
 """
 
 import json
@@ -18,31 +20,29 @@ import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
-from flask import Flask, request, jsonify, Response
+from flask import Flask, Response, jsonify, request
 
 app = Flask(__name__)
 
 # --- Configuration ---------------------------------------------------------
 
-LOG_FILE = Path(__file__).parent / "server_log.json"
+LOG_FILE = Path(__file__).parent / "server_log.jsonl"
 BLACKLIST = {"admin", "root", "test", "superuser", "null", "undefined"}
-BANNED_QUERY_TOKENS = {"DROP", "DELETE", "TRUNCATE", "EXEC", "<script"}
+BANNED_QUERY_TOKENS = {"DROP", "DELETE", "TRUNCATE", "EXEC", "<SCRIPT"}  # uppercase!
 EMAIL_REGEX = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 SINK_PREFIX = "SEARCH:"
 
 # --- Instrumentation -------------------------------------------------------
 
-def log_event(correlation_id: str, stages_reached: list[str],
-              sink_reached: bool, outcome: str) -> None:
-    """Append one server-side event to the log file."""
+def log_event(cid, passed, sink_reached, outcome):
     entry = {
-        "correlation_id": correlation_id,
+        "correlation_id": cid,
         "timestamp": datetime.now(timezone.utc).isoformat(),
-        "stages_reached": stages_reached,
+        "stages_passed": list(passed),
+        "depth": len(passed),
         "sink_reached": sink_reached,
         "outcome": outcome,
     }
-    # Append-line JSON (JSONL) — easy to grep, easy to stream.
     with LOG_FILE.open("a") as f:
         f.write(json.dumps(entry) + "\n")
 
@@ -53,7 +53,12 @@ def make_response_with_cid(body: dict, status: int, correlation_id: str) -> Resp
     resp.headers["X-Correlation-ID"] = correlation_id
     return resp
 
-# --- Target endpoint -------------------------------------------------------
+
+def reject(cid, passed, outcome, msg, status):
+    log_event(cid, passed, False, outcome)
+    return make_response_with_cid({"error": msg}, status, cid)
+
+# --- Target endpoints ------------------------------------------------------
 
 @app.route("/", methods=["GET"])
 def index():
@@ -62,114 +67,69 @@ def index():
 
 @app.route("/submit", methods=["POST"])
 def submit():
-    correlation_id = str(uuid.uuid4())
-    stages_reached: list[str] = []
-    sink_reached = False
+    cid, passed = str(uuid.uuid4()), []
 
-    # Stage 1: Parse body
     try:
         data = request.get_json(force=True)
     except Exception:
-        log_event(correlation_id, stages_reached, sink_reached, "malformed_json")
-        return make_response_with_cid(
-            {"error": "Request body must be valid JSON"}, 400, correlation_id
-        )
-
+        return reject(cid, passed, "malformed_json", "Body must be valid JSON", 400)
     if not isinstance(data, dict):
-        log_event(correlation_id, stages_reached, sink_reached, "not_object")
-        return make_response_with_cid(
-            {"error": "Request body must be a JSON object"}, 400, correlation_id
-        )
+        return reject(cid, passed, "not_object", "Body must be a JSON object", 400)
+    passed.append("json_ok")
 
-    username = data.get("username")
-    query = data.get("query")
-
-    # Stage 2: Presence
+    username, query = data.get("username"), data.get("query")
     if not username or not query:
-        stages_reached.append("presence_check")
-        log_event(correlation_id, stages_reached, sink_reached, "missing_fields")
-        return make_response_with_cid(
-            {"error": "Both 'username' and 'query' fields are required"},
-            400, correlation_id,
-        )
+        return reject(cid, passed, "missing_fields", "'username' and 'query' required", 400)
+    passed.append("presence_ok")
 
-    # Stage 3: Email format
-    stages_reached.append("presence_check")
     if not isinstance(username, str) or not EMAIL_REGEX.match(username):
-        log_event(correlation_id, stages_reached, sink_reached, "bad_email_format")
-        return make_response_with_cid(
-            {"error": "'username' must be a valid email address (user@domain.tld)"},
-            400, correlation_id,
-        )
+        return reject(cid, passed, "bad_email_format", "'username' must be user@domain.tld", 400)
+    passed.append("email_ok")
 
-    # Stage 4: Blacklist
-    stages_reached.append("email_format_ok")
-    if username.split("@")[0].lower() in BLACKLIST:
-        log_event(correlation_id, stages_reached, sink_reached, "blacklisted_user")
-        return make_response_with_cid(
-            {"error": "This username is reserved"}, 403, correlation_id
-        )
+    local = username.split("@")[0]
+    if local.lower() in BLACKLIST:
+        return reject(cid, passed, "blacklisted_user", "This username is reserved", 403)
+    passed.append("blacklist_ok")
 
-    # Stage 5: Length
-    stages_reached.append("blacklist_ok")
-    if not (5 <= len(username) <= 50):
-        log_event(correlation_id, stages_reached, sink_reached, "bad_username_length")
-        return make_response_with_cid(
-            {"error": "'username' local part must be 5-50 characters"},
-            400, correlation_id,
-        )
+    if not (5 <= len(local) <= 50):
+        return reject(cid, passed, "bad_username_length", "Local part must be 5-50 chars", 400)
+    passed.append("length_ok")
 
-    # Stage 6: Query length + banned tokens (simulated WAF)
-    stages_reached.append("username_valid")
     if not isinstance(query, str) or len(query) < 10:
-        log_event(correlation_id, stages_reached, sink_reached, "query_too_short")
-        return make_response_with_cid(
-            {"error": "'query' must be at least 10 characters"}, 400, correlation_id
-        )
-    if any(token in query.upper() for token in BANNED_QUERY_TOKENS):
-        log_event(correlation_id, stages_reached, sink_reached, "waf_blocked")
-        return make_response_with_cid(
-            {"error": "Query blocked by security filter"}, 403, correlation_id
-        )
+        return reject(cid, passed, "query_too_short", "'query' must be >= 10 chars", 400)
+    if any(tok in query.upper() for tok in BANNED_QUERY_TOKENS):
+        return reject(cid, passed, "waf_blocked", "Query blocked by security filter", 403)
+    passed.append("query_ok")
 
-    # Stage 7: Sink — requires magic prefix
-    stages_reached.append("query_valid")
     if not query.startswith(SINK_PREFIX):
-        log_event(correlation_id, stages_reached, sink_reached, "no_sink_prefix")
+        return reject(cid, passed, "no_sink_prefix",
+                      "Query must look like <OPERATION>:<argument>", 400)
+    passed.append("prefix_ok")
+
+    passed.append("sink_reached")
+    if "'" in query:  # deliberate bug behind all stages -> gives the oracle a 5xx
+        log_event(cid, passed, True, "sql_error")
         return make_response_with_cid(
-            {"error": "Query must begin with operation prefix"}, 400, correlation_id
-        )
+            {"error": "sqlite3.OperationalError: unrecognized token"}, 500, cid)
+    log_event(cid, passed, True, "sink_executed")
+    return make_response_with_cid({"status": "ok"}, 200, cid)
 
-    # SINK REACHED
-    sink_reached = True
-    stages_reached.append("sink_reached")
-    # Simulated SQL execution (just logged, never actually run).
-    simulated_sql = f"SELECT * FROM users WHERE name='{username}' AND q='{query}'"
-    log_event(correlation_id, stages_reached, sink_reached, "sink_executed")
-    return make_response_with_cid(
-        {"status": "ok", "executed": simulated_sql}, 200, correlation_id
-    )
-
-# --- Debug endpoint (for verification only) -------------------------------
+# --- Debug endpoints (verification / experiment control) -------------------
 
 @app.route("/logs", methods=["GET"])
 def logs():
-    """View the server-side log. Useful for verifying instrumentation."""
     if not LOG_FILE.exists():
-        return jsonify({"entries": []})
+        return jsonify({"entries": [], "count": 0})
     entries = [json.loads(line) for line in LOG_FILE.read_text().splitlines() if line]
     return jsonify({"entries": entries, "count": len(entries)})
 
 
 @app.route("/reset", methods=["POST"])
 def reset():
-    """Clear the server-side log between experimental runs."""
-    if LOG_FILE.exists():
-        LOG_FILE.write_text("")
+    LOG_FILE.write_text("")
     return jsonify({"status": "reset"})
 
 
 if __name__ == "__main__":
-    # Clear log on startup so each experimental run starts clean.
-    LOG_FILE.write_text("")
+    LOG_FILE.write_text("")  # clean log on startup
     app.run(host="127.0.0.1", port=5000, debug=False)
