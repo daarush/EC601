@@ -33,7 +33,7 @@ A security-literate developer or graduate student who wants to understand whethe
 | Python 3.11+ | Project language; ecosystem support for HTTP, ML, and LLM libs |
 | `pyproject.toml` + `uv` | Modern dependency management; `uv` ensures fast, reproducible env creation via `uv.lock` |
 | Flask | Custom target app; lightweight, easy to instrument with middleware |
-| `httpx` | Async HTTP client for the fuzzer core to handle high request throughput |
+| sync client for baseline (determinism) | Async HTTP client for the fuzzer core to handle high request throughput |
 | scikit-learn | Classical ML variant (gradient boosting / random forest); fast, explainable, no GPU needed |
 | OpenAI API (or Ollama fallback) | LLM payload generation; API for quality, local Ollama as cost-free fallback |
 | Docker (DVWA only) | Standard, reproducible vulnerable target |
