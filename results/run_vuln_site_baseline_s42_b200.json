@@ -1,0 +1,3413 @@
+{
+ "meta": {
+  "target": "vuln_site",
+  "strategy": "baseline",
+  "seed": 42,
+  "budget": 200
+ },
+ "summary": {
+  "requests": 200,
+  "first_interesting": 65,
+  "interesting_total": 2,
+  "max_depth": 4,
+  "sink_hits": 100,
+  "status_counts": {
+   "200": 98,
+   "400": 100,
+   "500": 2
+  }
+ },
+ "records": [
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "8f93c9f6-2556-4502-b8c3-b87a05733706",
+   "i": 0,
+   "payload": {
+    "q": "widget",
+    "limit": "10"
+   },
+   "latency_ms": 12.331800011452287,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "2d14ac48-c146-4cd3-946a-46ef44e1e905",
+   "i": 1,
+   "payload": {
+    "limit": "]0",
+    "q": ""
+   },
+   "latency_ms": 14.274900022428483,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "4f80e66c-72bd-4e29-bfdb-08dc7ea172f3",
+   "i": 2,
+   "payload": {
+    "q": "widgpet",
+    "limit": "10"
+   },
+   "latency_ms": 15.492099977564067,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "15278c7b-d8ea-4e81-9cac-b0ed5a80d057",
+   "i": 3,
+   "payload": {
+    "q": "\"",
+    "limit": "--10"
+   },
+   "latency_ms": 16.1717000300996,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "a4b11e00-999a-4f42-bde4-b78f4b16e329",
+   "i": 4,
+   "payload": {
+    "q": "./",
+    "limit": "10"
+   },
+   "latency_ms": 14.903400035109371,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "eae3f1d5-d9b3-44d4-8421-5b0b14254ab6",
+   "i": 5,
+   "payload": {
+    "q": "widget",
+    "limit": ":"
+   },
+   "latency_ms": 13.013499963562936,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "6c14e133-ca3a-439e-8da2-8a111c6838dc",
+   "i": 6,
+   "payload": {
+    "q": ";widget",
+    "limit": "10"
+   },
+   "latency_ms": 13.376200047787279,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "4ef2b68e-8fcf-47b5-a15b-e4c1638b00bd",
+   "i": 7,
+   "payload": {
+    "q": "widge",
+    "limit": "10"
+   },
+   "latency_ms": 14.399600040633231,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "60333089-143c-42ac-b595-32c8dc44e245",
+   "i": 8,
+   "payload": {
+    "q": "widgett",
+    "limit": "0"
+   },
+   "latency_ms": 14.466499967966229,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "f54ee5b9-8fa6-4e83-834d-429c82d2e546",
+   "i": 9,
+   "payload": {
+    "q": "21447483648",
+    "limit": "0"
+   },
+   "latency_ms": 13.876300014089793,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "1ad5c41a-a2e1-42c7-a801-3a3d4aa9214b",
+   "i": 10,
+   "payload": {
+    "q": "widget",
+    "limit": "\u0000"
+   },
+   "latency_ms": 27.45409996714443,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "ce61ab26-65ba-4263-ae4a-9a2a72a8ba75",
+   "i": 11,
+   "payload": {
+    "q": "widgek",
+    "limit": "1b"
+   },
+   "latency_ms": 15.58800000930205,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "609cf4ff-96f9-4b21-a704-8cdd0c6963af",
+   "i": 12,
+   "payload": {
+    "q": "widget",
+    "limit": "../"
+   },
+   "latency_ms": 13.13300000037998,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "dd8803e7-3d99-49a2-bd02-64efc1e92004",
+   "i": 13,
+   "payload": {
+    "q": "widg-et",
+    "limit": "10"
+   },
+   "latency_ms": 15.19980002194643,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "3428e160-7420-4125-9c96-1d2f4c535a41",
+   "i": 14,
+   "payload": {
+    "q": "-1",
+    "limit": "10"
+   },
+   "latency_ms": 1.9114000024273992,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "b8daf8b1-5390-444a-8408-674a0aebda3d",
+   "i": 15,
+   "payload": {
+    "q": "idget",
+    "limit": "10"
+   },
+   "latency_ms": 1.623300020582974,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "6fa462d4-e444-406f-9a7c-0ab2c83f05c2",
+   "i": 16,
+   "payload": {
+    "q": "widget",
+    "limit": "[&&"
+   },
+   "latency_ms": 26.35040000313893,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "4a63f91e-0039-4db3-b3d6-1fa68ef393ac",
+   "i": 17,
+   "payload": {
+    "q": "@",
+    "limit": ""
+   },
+   "latency_ms": 17.934300005435944,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "68d03e21-be30-4efb-9aff-ff61d8c0e488",
+   "i": 18,
+   "payload": {
+    "q": "{widgeG<script>alert(1)</script>t",
+    "limit": "10"
+   },
+   "latency_ms": 14.362799993250519,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "6e104782-f806-47bf-bba7-f9bfd21db475",
+   "i": 19,
+   "payload": {
+    "q": "${7*7}",
+    "limit": "1010"
+   },
+   "latency_ms": 15.333399991504848,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "5a661279-cd52-4bfb-ac64-6189362a229f",
+   "i": 20,
+   "payload": {
+    "q": "idget",
+    "limit": "0"
+   },
+   "latency_ms": 15.530399978160858,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "eaf1ec08-534e-440d-a5d4-ea7ce7423cf0",
+   "i": 21,
+   "payload": {
+    "q": "widnet",
+    "limit": "10"
+   },
+   "latency_ms": 15.259599953424186,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"q required\"}\n",
+   "body_len": 23,
+   "cid": "b014c48e-c64d-487b-b70f-1224367b3f8d",
+   "i": 22,
+   "payload": {
+    "q": [],
+    "limit": "1"
+   },
+   "latency_ms": 14.347999996971339,
+   "client_interesting": false,
+   "depth": 0,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "af07730a-276f-4819-9539-dd836dc3b3a1",
+   "i": 23,
+   "payload": {
+    "q": "widgetidget",
+    "limit": "10"
+   },
+   "latency_ms": 13.017599994782358,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "c62c83f1-bae1-4ac0-9f6d-33d0e975a5dc",
+   "i": 24,
+   "payload": {
+    "q": "2147483648",
+    "limit": ""
+   },
+   "latency_ms": 13.24259996181354,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "345d2ed1-6320-49bb-9872-0f80c4352a5d",
+   "i": 25,
+   "payload": {
+    "q": "widg et",
+    "limit": ""
+   },
+   "latency_ms": 15.076400013640523,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "b178cf77-3937-462c-b21d-8f9d8c63d34d",
+   "i": 26,
+   "payload": {
+    "q": "-widet",
+    "limit": "$0"
+   },
+   "latency_ms": 13.45889997901395,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "97409d1b-d1a0-4e2e-9521-aa03274a9bbd",
+   "i": 27,
+   "payload": {
+    "q": "widgetet",
+    "limit": "10"
+   },
+   "latency_ms": 14.467199973296374,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "b3fa3e96-2442-4dcd-94e6-af62b2ecb107",
+   "i": 28,
+   "payload": {
+    "q": "../../etcWpasswd",
+    "limit": "100"
+   },
+   "latency_ms": 13.53009999729693,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "d7619add-67a2-454e-94a0-d48988b146e1",
+   "i": 29,
+   "payload": {
+    "limit": "10",
+    "q": 0
+   },
+   "latency_ms": 12.676100013777614,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "569867fa-2491-4247-a269-487f15beec44",
+   "i": 30,
+   "payload": {
+    "q": "widget",
+    "limit": "<script>a[lert(1)<"
+   },
+   "latency_ms": 14.088199997786433,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "83a54497-879a-43db-a8da-dd0354cf6597",
+   "i": 31,
+   "payload": {
+    "q": "widge",
+    "limit": "10"
+   },
+   "latency_ms": 14.179399993736297,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "5a728e28-d848-43b8-a91a-390153bb492e",
+   "i": 32,
+   "payload": {
+    "q": true,
+    "limit": "1../0"
+   },
+   "latency_ms": 14.282500022090971,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "02165adb-ab4d-4abe-a300-32c6d1b14927",
+   "i": 33,
+   "payload": {
+    "limit": "10",
+    "q": "0"
+   },
+   "latency_ms": 14.140400046017021,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "d4972185-1dc8-4d11-afd0-80cd790ee737",
+   "i": 34,
+   "payload": {
+    "q": "widg4t",
+    "limit": "trug"
+   },
+   "latency_ms": 13.616300013381988,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "fff1f913-f0c9-4cc5-a6af-6501aaf371c4",
+   "i": 35,
+   "payload": {
+    "q": "widget",
+    "limit": "1q0"
+   },
+   "latency_ms": 14.224700047634542,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "834ebaeb-fa53-4e22-87ed-925ac6a653a0",
+   "i": 36,
+   "payload": {
+    "q": " ;",
+    "limit": "k0"
+   },
+   "latency_ms": 13.49010004196316,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "a0feda13-491e-4283-8556-5b98c8d2713a",
+   "i": 37,
+   "payload": {
+    "q": "widet",
+    "limit": "100"
+   },
+   "latency_ms": 13.746800017543137,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "61445740-fa55-4f47-9b6b-c60009f97c4d",
+   "i": 38,
+   "payload": {
+    "q": "widget",
+    "limit": "1"
+   },
+   "latency_ms": 14.452799980062991,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "0baf77e5-9aef-4db2-9989-9690eef79ce6",
+   "i": 39,
+   "payload": {
+    "q": "widgetget",
+    "limit": "1"
+   },
+   "latency_ms": 14.065200055483729,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "c457f120-93fd-4951-a895-4295c39da36d",
+   "i": 40,
+   "payload": {
+    "q": "widget",
+    "limit": "\"\""
+   },
+   "latency_ms": 13.182399969082326,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "b2358611-f425-4479-8e4e-0fc994c4f520",
+   "i": 41,
+   "payload": {
+    "q": "widgetdg'et",
+    "limit": "@"
+   },
+   "latency_ms": 14.63509997120127,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "cd9c6397-2bde-443a-83ce-be6341b47c5a",
+   "i": 42,
+   "payload": {
+    "q": "widge",
+    "limit": ":"
+   },
+   "latency_ms": 1.93210004363209,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "ced4f3be-aaad-4459-9f6d-62d84c33d872",
+   "i": 43,
+   "payload": {
+    "q": "../../etc/parootsswd",
+    "limit": "10"
+   },
+   "latency_ms": 1.812600006815046,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "87b054b9-b499-43fc-9a76-c825b3c961a1",
+   "i": 44,
+   "payload": {
+    "q": "widget",
+    "limit": "\ud83d\ude00"
+   },
+   "latency_ms": 23.774200002662838,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "bd9125a8-5f6f-4188-bce5-76389abd7775",
+   "i": 45,
+   "payload": {
+    "q": ";",
+    "limit": "../../etc/passwd"
+   },
+   "latency_ms": 15.888499969150871,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "79538de1-ae66-4686-be90-d2c380f4cbf2",
+   "i": 46,
+   "payload": {
+    "q": "widget",
+    "limit": "1010"
+   },
+   "latency_ms": 15.229800017550588,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "b1d487bd-9bd0-439d-bfeb-4e378f9bd6ee",
+   "i": 47,
+   "payload": {
+    "q": "widg",
+    "limit": "10"
+   },
+   "latency_ms": 1.5842000138945878,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "28ecf3ec-d79f-41e8-ac0a-acc5056a368d",
+   "i": 48,
+   "payload": {
+    "q": "widget",
+    "limit": "100"
+   },
+   "latency_ms": 14.369499986059964,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "1c71d121-f968-4602-b94e-23511dfb2017",
+   "i": 49,
+   "payload": {
+    "q": "widget",
+    "limit": ""
+   },
+   "latency_ms": 13.382200035266578,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "e10d1f96-12c4-4453-a635-e20fcb00c8d2",
+   "i": 50,
+   "payload": {
+    "q": "@",
+    "limit": ""
+   },
+   "latency_ms": 13.139899994712323,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "c03ec216-1b47-4880-ab60-9e0ed05006b1",
+   "i": 51,
+   "payload": {
+    "q": "widget",
+    "limit": "root"
+   },
+   "latency_ms": 15.49319998594001,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "bcf5b02e-f73d-4f6a-bd33-78efd966af19",
+   "i": 52,
+   "payload": {
+    "q": "%s%s%s",
+    "limit": "10"
+   },
+   "latency_ms": 14.958700048737228,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "b3937d6c-191b-47ec-9cdd-b3ba4169893d",
+   "i": 53,
+   "payload": {
+    "q": true,
+    "limit": "10"
+   },
+   "latency_ms": 13.077399984467775,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "01788ff0-20e5-4067-aba6-e0faf5b88cc3",
+   "i": 54,
+   "payload": {
+    "q": "widget",
+    "limit": "10M0"
+   },
+   "latency_ms": 13.022799976170063,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "eee335bb-5fd4-48d3-9012-d97cdba161c2",
+   "i": 55,
+   "payload": {
+    "q": "wid;get",
+    "limit": "100"
+   },
+   "latency_ms": 12.926299998071045,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "1e20d014-3685-43fe-a78a-36adb658700e",
+   "i": 56,
+   "payload": {
+    "q": "widget",
+    "limit": "1H0"
+   },
+   "latency_ms": 17.242500034626573,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "b22f95f1-7251-4cc8-aefe-11aa09295d31",
+   "i": 57,
+   "payload": {
+    "q": "?widget",
+    "limit": "0"
+   },
+   "latency_ms": 13.177700049709529,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "96d30239-2f6b-4bbd-b59d-956b4373ed9b",
+   "i": 58,
+   "payload": {
+    "q": "widget",
+    "limit": "100"
+   },
+   "latency_ms": 13.36849998915568,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "e7e7b282-6768-42c3-8c25-75ce6751028c",
+   "i": 59,
+   "payload": {
+    "q": "widget",
+    "limit": "214748348"
+   },
+   "latency_ms": 14.22929996624589,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "92c8b268-0b78-4e2c-9c74-dca3fb0f73b3",
+   "i": 60,
+   "payload": {
+    "q": ".com",
+    "limit": "10"
+   },
+   "latency_ms": 1.8106000497937202,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "05ba6899-1cc0-4434-a92a-732a6d1f4a2a",
+   "i": 61,
+   "payload": {
+    "q": "widgetidget",
+    "limit": "10"
+   },
+   "latency_ms": 11.842200008686632,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "6423db32-c9f6-412a-ab7f-b978b17f26b0",
+   "i": 62,
+   "payload": {
+    "q": "widge",
+    "limit": "10"
+   },
+   "latency_ms": 14.389899966772646,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "b17ebf27-dbab-4484-9d20-67f58df53dfa",
+   "i": 63,
+   "payload": {
+    "q": "wi' OR '1'='1dget",
+    "limit": "10"
+   },
+   "latency_ms": 13.178699999116361,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "14bb1106-398a-4df8-aa49-62df2915eb9d",
+   "i": 64,
+   "payload": {
+    "q": {},
+    "limit": "10"
+   },
+   "latency_ms": 14.481599966529757,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 500,
+   "body": "{\"error\":\"sqlite3.OperationalError: near \\\"dge\\\": syntax error\"}\n",
+   "body_len": 65,
+   "cid": "c25f7df4-7f2e-414e-bca2-5de693af7af5",
+   "i": 65,
+   "payload": {
+    "q": "wi'dge@t",
+    "limit": "1"
+   },
+   "latency_ms": 13.608900015242398,
+   "client_interesting": true,
+   "depth": 3,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": true
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "bc092475-6311-458f-a1d8-ed14795f82c3",
+   "i": 66,
+   "payload": {
+    "q": "widget",
+    "limit": "1"
+   },
+   "latency_ms": 13.101099990308285,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "129805a3-deaa-4b05-97da-e679b4c892c3",
+   "i": 67,
+   "payload": {
+    "q": "widget",
+    "limit": ""
+   },
+   "latency_ms": 14.670899952761829,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "22f153f9-9d5d-4a38-adf4-50e2f753f486",
+   "i": 68,
+   "payload": {
+    "q": "widget",
+    "limit": "10100"
+   },
+   "latency_ms": 1.7810999997891486,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "ebb6d813-cd2a-406e-837c-4354084dade8",
+   "i": 69,
+   "payload": {
+    "q": "%00",
+    "limit": "root1"
+   },
+   "latency_ms": 13.48099997267127,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "c807463b-ccd9-405b-a3fc-87a4aa123b96",
+   "i": 70,
+   "payload": {
+    "q": "null",
+    "limit": "10"
+   },
+   "latency_ms": 12.78619997901842,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "89d621c5-fb74-4248-97d8-d273e162a98b",
+   "i": 71,
+   "payload": {
+    "q": 0,
+    "limit": "1admin0"
+   },
+   "latency_ms": 12.905700015835464,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "a3d2c168-3ebf-415c-ac7d-2fab4d1fdf39",
+   "i": 72,
+   "payload": {
+    "q": "wrdget",
+    "limit": "\":"
+   },
+   "latency_ms": 13.997400004882365,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "d2cf2f61-4cb5-4e23-9bfb-99c412e26e92",
+   "i": 73,
+   "payload": {
+    "q": ".5/",
+    "limit": ";10"
+   },
+   "latency_ms": 13.028099958319217,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "377e1d0a-2221-46d5-9662-576320c15fed",
+   "i": 74,
+   "payload": {
+    "q": "widget",
+    "limit": "1d"
+   },
+   "latency_ms": 15.404000005219132,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "bd79a7c6-6966-4d82-95fd-0e76b18d492e",
+   "i": 75,
+   "payload": {
+    "q": "widget",
+    "limit": "1"
+   },
+   "latency_ms": 2.010099997278303,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99],[2,\"gadget\",19.5],[3,\"gizmo\",4.25]]}\n",
+   "body_len": 64,
+   "cid": "5b22711a-a4cf-4037-bcb9-493e3cc63fc2",
+   "i": 76,
+   "payload": {
+    "q": "",
+    "limit": "10"
+   },
+   "latency_ms": 12.142499967012554,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "ee213d5a-3a1d-4b73-91dd-0fb4afb8e334",
+   "i": 77,
+   "payload": {
+    "q": "widget",
+    "limit": "j10"
+   },
+   "latency_ms": 13.41740001225844,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "7c097cac-a13b-4fb7-88e4-99d5c2edc44a",
+   "i": 78,
+   "payload": {
+    "q": "null",
+    "limit": 0
+   },
+   "latency_ms": 13.266599969938397,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "d4826695-2527-44c8-abdf-213db1c60f35",
+   "i": 79,
+   "payload": {
+    "q": "wdget",
+    "limit": "2147483648"
+   },
+   "latency_ms": 14.215199975296855,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "1fe9c095-14f2-43cd-98f1-332096e09d7f",
+   "i": 80,
+   "payload": {
+    "q": "wg",
+    "limit": "10"
+   },
+   "latency_ms": 14.532300003338605,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "e654de6a-6dbc-407f-8ca2-2cd70f1803e8",
+   "i": 81,
+   "payload": {
+    "q": "widge;t",
+    "limit": "10"
+   },
+   "latency_ms": 15.348400047514588,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "6ada7863-9f9d-4778-8c02-5ba62639557f",
+   "i": 82,
+   "payload": {
+    "q": "widge@t@t",
+    "limit": "10"
+   },
+   "latency_ms": 2.940000034868717,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "349aebe5-8bc6-4974-bff2-d361908a21d8",
+   "i": 83,
+   "payload": {
+    "q": "widget",
+    "limit": "0"
+   },
+   "latency_ms": 25.20380000350997,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "3b52e6c9-42fa-4135-aa7a-eefe20c31e03",
+   "i": 84,
+   "payload": {
+    "q": "widget",
+    "limit": "1\"0"
+   },
+   "latency_ms": 15.618200006429106,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "860dda22-28df-462b-987f-dface8279c59",
+   "i": 85,
+   "payload": {
+    "q": "%s%s%s",
+    "limit": "1admin0"
+   },
+   "latency_ms": 27.60850003687665,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "eaae807e-5c78-464b-95b0-fc0ad27b989c",
+   "i": 86,
+   "payload": {
+    "q": "widgeyt"
+   },
+   "latency_ms": 15.498299966566265,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "100f40cd-c879-44f6-8cff-e59152bc7aa6",
+   "i": 87,
+   "payload": {
+    "q": "wid%et",
+    "limit": "1"
+   },
+   "latency_ms": 2.240500005427748,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "b64a02c1-d1d5-40ca-a683-c1cbf508a8b4",
+   "i": 88,
+   "payload": {
+    "q": "widget",
+    "limit": ""
+   },
+   "latency_ms": 1.6879999893717468,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "28225ac5-de4a-4a3e-9a11-e51ff8ddd1bd",
+   "i": 89,
+   "payload": {
+    "q": "wid",
+    "limit": "10"
+   },
+   "latency_ms": 11.605900013819337,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "73817154-9502-4f44-8d25-5b3ca15a4cff",
+   "i": 90,
+   "payload": {
+    "q": "widge",
+    "limit": "10"
+   },
+   "latency_ms": 1.565899990964681,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "56c3ec88-76dd-4520-a55c-8b2ec3cd45ab",
+   "i": 91,
+   "payload": {
+    "q": "wiUget",
+    "limit": "1010"
+   },
+   "latency_ms": 1.7872999887913465,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "b1a9d337-1706-4dd3-b9f7-f85d9641ccf7",
+   "i": 92,
+   "payload": {
+    "q": "wget",
+    "limit": "10"
+   },
+   "latency_ms": 1.5694999601691961,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "dd8301e0-af05-4e9a-a33b-e8b04949e598",
+   "i": 93,
+   "payload": {
+    "q": "widget",
+    "limit": "1;0;0"
+   },
+   "latency_ms": 1.788900000974536,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "ff635bd5-fbdb-41f5-997d-cde4a2b4c895",
+   "i": 94,
+   "payload": {
+    "q": "zidget",
+    "limit": "."
+   },
+   "latency_ms": 25.166100007481873,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "433498d7-9147-44ea-80ec-2e87fe684992",
+   "i": 95,
+   "payload": {
+    "q": "widget",
+    "limit": "nulll"
+   },
+   "latency_ms": 15.160200011450797,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "1774f4f2-06f9-44fe-9760-c5559cad8a59",
+   "i": 96,
+   "payload": {
+    "q": "widget"
+   },
+   "latency_ms": 15.473700012080371,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "a62f942e-6e43-42c9-8de4-a9e08d4d94f3",
+   "i": 97,
+   "payload": {
+    "q": "w#idget",
+    "limit": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+   },
+   "latency_ms": 13.4216999867931,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "15fe4fe2-cb24-4e6e-8af0-12d375a005bb",
+   "i": 98,
+   "payload": {
+    "q": "Yidget",
+    "limit": "../../etc/passwd"
+   },
+   "latency_ms": 13.515400001779199,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "43375ab2-7a0d-4dce-8359-e3f33a6009a3",
+   "i": 99,
+   "payload": {
+    "q": "widget",
+    "limit": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+   },
+   "latency_ms": 13.962500030174851,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "8ca4a27b-8a1b-4f5f-82e5-d0666a19815a",
+   "i": 100,
+   "payload": {
+    "q": "widet",
+    "limit": "u0"
+   },
+   "latency_ms": 13.577200006693602,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "881f1447-ca49-4f71-b9ed-fd9240ef7c78",
+   "i": 101,
+   "payload": {
+    "q": "widget",
+    "limit": "170"
+   },
+   "latency_ms": 14.063199982047081,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "dbf19a58-96bd-41e6-8d27-08783127b0a2",
+   "i": 102,
+   "payload": {
+    "q": "widget",
+    "limit": "m0"
+   },
+   "latency_ms": 13.657799980137497,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "2a7f6673-926d-4659-ae3e-d78240609819",
+   "i": 103,
+   "payload": {
+    "q": "widget",
+    "limit": "100"
+   },
+   "latency_ms": 13.77300004241988,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "b6fa5c39-0829-43a7-8c64-dabe08af427e",
+   "i": 104,
+   "payload": {
+    "q": 1,
+    "limit": "10"
+   },
+   "latency_ms": 14.816800015978515,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "776db935-7806-4788-bda0-a2037a6f17a6",
+   "i": 105,
+   "payload": {
+    "q": "widget",
+    "limit": "\u0000"
+   },
+   "latency_ms": 13.28829996054992,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "50f20863-3cf1-4cb3-9e0c-30c58f8d2070",
+   "i": 106,
+   "payload": {
+    "q": "widget",
+    "limit": ";1\t0"
+   },
+   "latency_ms": 14.009500038810074,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "e6c0eca5-1b83-4799-9496-28035efe6a7a",
+   "i": 107,
+   "payload": {
+    "q": "widge--t",
+    "limit": "100"
+   },
+   "latency_ms": 14.611000020522624,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "6f2ce8a1-184e-4cca-9bd4-25d2d01c5740",
+   "i": 108,
+   "payload": {
+    "q": "BiUdget",
+    "limit": "g0"
+   },
+   "latency_ms": 13.432600011583418,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "0f0cd0a0-e873-488f-9811-3081997022c6",
+   "i": 109,
+   "payload": {
+    "q": "wdget",
+    "limit": "..--/10"
+   },
+   "latency_ms": 14.159500016830862,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "3d85db6c-f165-44af-894f-50958a9b7ecc",
+   "i": 110,
+   "payload": {
+    "q": "widget",
+    "limit": "--"
+   },
+   "latency_ms": 1.6445000073872507,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "b2362ddb-95ac-48eb-b162-c7fb8509706f",
+   "i": 111,
+   "payload": {
+    "q": "widet",
+    "limit": "1;0"
+   },
+   "latency_ms": 1.5866999747231603,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "54e045b2-0371-45be-be17-9a5d2faa3afc",
+   "i": 112,
+   "payload": {
+    "q": "<script>alert(1)</scri",
+    "limit": "100"
+   },
+   "latency_ms": 24.448199954349548,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "958b17ef-fcfe-44ea-9ef4-7087cc98f14f",
+   "i": 113,
+   "payload": {
+    "q": "widget",
+    "limit": "C100"
+   },
+   "latency_ms": 15.61160001438111,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "6d63b3e8-0819-4c57-a412-c46e199d8e07",
+   "i": 114,
+   "payload": {
+    "q": "widget",
+    "limit": "\u0000"
+   },
+   "latency_ms": 12.648199975956231,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "5883f519-467c-44ba-9885-9e524b4ed7f7",
+   "i": 115,
+   "payload": {
+    "q": "widet",
+    "limit": ""
+   },
+   "latency_ms": 12.490299995988607,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "b7578e28-2260-4c5c-9f63-cf15f0d9ea3e",
+   "i": 116,
+   "payload": {
+    "q": ".com",
+    "limit": 1
+   },
+   "latency_ms": 14.017200039234012,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99],[2,\"gadget\",19.5],[3,\"gizmo\",4.25]]}\n",
+   "body_len": 64,
+   "cid": "4834470a-f159-4e53-ab55-956c0a0db712",
+   "i": 117,
+   "payload": {
+    "q": "",
+    "limit": "10"
+   },
+   "latency_ms": 14.33009997708723,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "c3e5a17c-3feb-47df-8d4d-e903b1e815d6",
+   "i": 118,
+   "payload": {
+    "q": "GwidgetGwidgetetGwidget",
+    "limit": "10"
+   },
+   "latency_ms": 14.133499993477017,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "2fb5ab2d-5a73-425f-9ea8-1e135bbb6a54",
+   "i": 119,
+   "payload": {
+    "q": "w(dget",
+    "limit": "10"
+   },
+   "latency_ms": 13.767799944616854,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "b8208773-1add-4b7a-8046-415688dd76ee",
+   "i": 120,
+   "payload": {
+    "q": "w1idget",
+    "limit": "100"
+   },
+   "latency_ms": 13.68689996888861,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "3f2c4936-33a4-41f2-94fd-bfee81e69520",
+   "i": 121,
+   "payload": {
+    "q": "widgeR",
+    "limit": "10"
+   },
+   "latency_ms": 1.7917000222951174,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "f5d5cad3-f5c4-45cc-8332-ac7968676fe0",
+   "i": 122,
+   "payload": {
+    "q": "wi[d",
+    "limit": "1"
+   },
+   "latency_ms": 12.802100041881204,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "01b722f4-ffca-484e-a4d3-4c9f3d3e25fe",
+   "i": 123,
+   "payload": {
+    "q": "widget",
+    "limit": null
+   },
+   "latency_ms": 1.81350001366809,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "9e30d2cb-e4b6-4768-9f9c-a624c3d41918",
+   "i": 124,
+   "payload": {
+    "q": 1,
+    "limit": "1root0"
+   },
+   "latency_ms": 11.658200004603714,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "79a1d6da-ebe5-4c69-976c-8ff8c4dcc42f",
+   "i": 125,
+   "payload": {
+    "q": "widgetget",
+    "limit": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+   },
+   "latency_ms": 12.874200008809566,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "d5f3f02c-8ad4-4233-a670-76f20ec7313c",
+   "i": 126,
+   "payload": {
+    "q": "widget",
+    "limit": "' OR '1'='11"
+   },
+   "latency_ms": 15.040299971587956,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "01846cba-8746-4841-bc14-f104ac14b42c",
+   "i": 127,
+   "payload": {
+    "q": null,
+    "limit": "3.\\14"
+   },
+   "latency_ms": 13.31959996605292,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "69383d59-6153-4725-9ab5-3e48b518a922",
+   "i": 128,
+   "payload": {
+    "q": "widget",
+    "limit": "%s%s%s"
+   },
+   "latency_ms": 14.393399993423373,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "6ed59a8d-c32b-457c-bea7-e962d5aa1337",
+   "i": 129,
+   "payload": {
+    "q": "widget",
+    "limit": "@"
+   },
+   "latency_ms": 1.6988000134006143,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "fe4b2a44-8747-4801-b796-33a63cf7618c",
+   "i": 130,
+   "payload": {
+    "q": "--",
+    "limit": "true"
+   },
+   "latency_ms": 11.838499980513006,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "8a12dab9-ade4-4480-a8df-dbb40ccec22f",
+   "i": 131,
+   "payload": {
+    "q": "' OR '1'='1w8dget",
+    "limit": "1%000"
+   },
+   "latency_ms": 14.090300013776869,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"q required\"}\n",
+   "body_len": 23,
+   "cid": "b763c023-4814-4584-b996-e82619afa960",
+   "i": 132,
+   "payload": {
+    "q": [],
+    "limit": "10"
+   },
+   "latency_ms": 13.55680002598092,
+   "client_interesting": false,
+   "depth": 0,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "ea040e6c-c7db-49f6-b10e-31fd0776ace2",
+   "i": 133,
+   "payload": {
+    "q": "widget",
+    "limit": "%00"
+   },
+   "latency_ms": 1.7976000090129673,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "e6bfce19-002d-47ca-996e-46f7ac61fbcb",
+   "i": 134,
+   "payload": {
+    "q": "widgeat",
+    "limit": "0"
+   },
+   "latency_ms": 26.506300026085228,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "a25ba2e6-64bd-43cf-bd50-da92d85f10a6",
+   "i": 135,
+   "payload": {
+    "q": "widget",
+    "limit": ""
+   },
+   "latency_ms": 14.581100025679916,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "49ddd157-95b7-45f9-b4a6-b40763b1d5ba",
+   "i": 136,
+   "payload": {
+    "q": "widg"
+   },
+   "latency_ms": 12.874200008809566,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"q required\"}\n",
+   "body_len": 23,
+   "cid": "e1062b71-26b1-4f2e-8fb3-e3e49332a540",
+   "i": 137,
+   "payload": {
+    "limit": "1B"
+   },
+   "latency_ms": 14.101000037044287,
+   "client_interesting": false,
+   "depth": 0,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"q required\"}\n",
+   "body_len": 23,
+   "cid": "7dca3b43-74a3-40f3-9885-dd09046d41ce",
+   "i": 138,
+   "payload": {
+    "limit": "true"
+   },
+   "latency_ms": 12.920600012876093,
+   "client_interesting": false,
+   "depth": 0,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "292f0f47-b7a0-429a-9b5b-96e436b54285",
+   "i": 139,
+   "payload": {
+    "q": "",
+    "limit": "%s%s%s"
+   },
+   "latency_ms": 14.611099963076413,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "79d8a51d-37e2-4301-be24-b14cd3aa3221",
+   "i": 140,
+   "payload": {
+    "q": "widget",
+    "limit": 3.14
+   },
+   "latency_ms": 12.587499979417771,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "4b45d4eb-62fb-4c11-b52b-be2560df2ea5",
+   "i": 141,
+   "payload": {
+    "q": "true",
+    "limit": "10"
+   },
+   "latency_ms": 1.8950000521726906,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "878c9108-997e-4aa8-a999-117a1737ec9f",
+   "i": 142,
+   "payload": {
+    "q": "widget",
+    "limit": "%00"
+   },
+   "latency_ms": 12.989100010599941,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "597fa440-a9af-4e24-8129-c21ee60063b9",
+   "i": 143,
+   "payload": {
+    "q": "widgt",
+    "limit": "10"
+   },
+   "latency_ms": 14.422699983697385,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99],[2,\"gadget\",19.5],[3,\"gizmo\",4.25]]}\n",
+   "body_len": 64,
+   "cid": "d3aa7bf2-d0c9-4b5f-a4f9-64b6ec2ac02e",
+   "i": 144,
+   "payload": {
+    "q": "",
+    "limit": "10"
+   },
+   "latency_ms": 1.844800019171089,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "d3015a63-e718-4e2b-a20f-d64a7589ee76",
+   "i": 145,
+   "payload": {
+    "q": "widget",
+    "limit": "\u0000"
+   },
+   "latency_ms": 25.510600011330098,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "f9222b78-fa16-4fb5-91d6-b5bec5e08a5c",
+   "i": 146,
+   "payload": {
+    "q": "widget",
+    "limit": "1admin0"
+   },
+   "latency_ms": 14.835000038146973,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "76b45e3c-b1c1-4406-b08f-b7ec11eac19e",
+   "i": 147,
+   "payload": {
+    "q": ".comwidget",
+    "limit": "10"
+   },
+   "latency_ms": 22.872100002132356,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "65781fd8-98c9-4479-89c0-d2eae1d4a4ea",
+   "i": 148,
+   "payload": {
+    "q": "widget",
+    "limit": "1,0"
+   },
+   "latency_ms": 18.871800042688847,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "fb02d331-3457-4a87-8275-59a2a5799309",
+   "i": 149,
+   "payload": {
+    "q": "",
+    "limit": "0"
+   },
+   "latency_ms": 1.8074999679811299,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "0f8ecfcb-5bb0-4d73-9c40-d6a1c308be06",
+   "i": 150,
+   "payload": {
+    "q": "widg",
+    "limit": "10"
+   },
+   "latency_ms": 1.6705000307410955,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "4738d5f6-698b-4c3f-a40b-b230670b6284",
+   "i": 151,
+   "payload": {
+    "q": "wid${7*7}get",
+    "limit": {}
+   },
+   "latency_ms": 1.572699984535575,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "005d982b-4670-434b-b51b-251d3eb45c6c",
+   "i": 152,
+   "payload": {
+    "q": "widge:t",
+    "limit": "1a"
+   },
+   "latency_ms": 24.375999986659735,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "0b7c1623-d749-481c-a772-85a01a1849a6",
+   "i": 153,
+   "payload": {
+    "q": "true",
+    "limit": ".com"
+   },
+   "latency_ms": 15.269700030330569,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "2338bb76-ac11-45dd-9821-311a9f26ae57",
+   "i": 154,
+   "payload": {
+    "q": "wHdget",
+    "limit": "90"
+   },
+   "latency_ms": 16.29329996649176,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "f2ca2eee-40d2-4b4c-9f63-9eab25404f6b",
+   "i": 155,
+   "payload": {
+    "q": "wndgeHt",
+    "limit": "10"
+   },
+   "latency_ms": 15.098500007297844,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "ff3090e0-2369-4844-9319-8f40d3d4da91",
+   "i": 156,
+   "payload": {
+    "q": "widKge:t",
+    "limit": "100"
+   },
+   "latency_ms": 12.776600022334605,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "71c5e281-ce5a-4e83-ae0b-faab47c8e77a",
+   "i": 157,
+   "payload": {
+    "q": "wid",
+    "limit": "0"
+   },
+   "latency_ms": 14.049299992620945,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "a286f660-ffb1-4cc1-91c7-090611ae9dde",
+   "i": 158,
+   "payload": {
+    "q": "widgeZt",
+    "limit": "10"
+   },
+   "latency_ms": 1.680700050201267,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "682697b7-a2c2-46a2-a8f4-38195c413466",
+   "i": 159,
+   "payload": {
+    "q": "wigrootet",
+    "limit": "10"
+   },
+   "latency_ms": 11.87360001495108,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "06150cc4-2a61-40da-8780-c8253b19b4af",
+   "i": 160,
+   "payload": {
+    "q": "widget",
+    "limit": 0
+   },
+   "latency_ms": 13.98920000065118,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "2fe584a5-44b3-42ac-a514-c94bdf131627",
+   "i": 161,
+   "payload": {
+    "q": "widget",
+    "limit": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+   },
+   "latency_ms": 14.23969998722896,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "11c555ff-8664-41c7-9ab6-141f02b41468",
+   "i": 162,
+   "payload": {
+    "q": "widget",
+    "limit": ";"
+   },
+   "latency_ms": 13.581199978943914,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "e01f6f65-bb63-4b53-8516-e79f01d06586",
+   "i": 163,
+   "payload": {
+    "q": "wirdget",
+    "limit": "AV"
+   },
+   "latency_ms": 14.183700026478618,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "12a156d6-7737-426d-9be8-6a3474f57ea6",
+   "i": 164,
+   "payload": {
+    "q": "widget",
+    "limit": "../10"
+   },
+   "latency_ms": 14.583199983462691,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99],[2,\"gadget\",19.5],[3,\"gizmo\",4.25]]}\n",
+   "body_len": 64,
+   "cid": "c2d49d99-ab67-4f69-aa31-5f6d324952e9",
+   "i": 165,
+   "payload": {
+    "q": "",
+    "limit": "10"
+   },
+   "latency_ms": 1.8292999593541026,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "6d8c699e-0c75-4089-8afa-603d66ee2e7d",
+   "i": 166,
+   "payload": {
+    "q": "widget",
+    "limit": "|10"
+   },
+   "latency_ms": 11.076199996750802,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "e7933117-56a7-4569-9e17-b0b024aa0dda",
+   "i": 167,
+   "payload": {
+    "q": "widget",
+    "limit": "@"
+   },
+   "latency_ms": 24.095100001432,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "02044807-31e2-4916-82e0-63a64285bf8f",
+   "i": 168,
+   "payload": {
+    "q": "widgt",
+    "limit": []
+   },
+   "latency_ms": 18.441200023517013,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "8c6fe235-c100-4509-b68f-fe028ce3b771",
+   "i": 169,
+   "payload": {
+    "q": "\ud83d\ude00",
+    "limit": "%0010"
+   },
+   "latency_ms": 13.276299985591322,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "661b4da6-ab21-44fc-930a-c96d9f4626b2",
+   "i": 170,
+   "payload": {
+    "q": "widge",
+    "limit": "|"
+   },
+   "latency_ms": 13.366300030611455,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "dc25a906-dbd6-4ca0-8755-219fe813acb0",
+   "i": 171,
+   "payload": {
+    "q": "w5idget",
+    "limit": "true"
+   },
+   "latency_ms": 13.994299981277436,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "4d681265-0a8b-4a2c-abb0-e20367f39632",
+   "i": 172,
+   "payload": {
+    "q": "widgeGt"
+   },
+   "latency_ms": 13.344500039238483,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "44d2bea2-44e2-47a4-9d27-b778861ae0c5",
+   "i": 173,
+   "payload": {
+    "q": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "limit": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+   },
+   "latency_ms": 16.732099989894778,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "01705ff7-8fea-4e45-b949-01d9f5bc2f7f",
+   "i": 174,
+   "payload": {
+    "q": "widget",
+    "limit": "--"
+   },
+   "latency_ms": 14.200000034179538,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "b91c564d-edef-478b-a7ed-fed6291e059e",
+   "i": 175,
+   "payload": {
+    "q": "widget",
+    "limit": []
+   },
+   "latency_ms": 15.241799992509186,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "1a730784-65ea-4832-bb4c-5f29ffb1fb9e",
+   "i": 176,
+   "payload": {
+    "q": "widget",
+    "limit": "1"
+   },
+   "latency_ms": 14.72569996258244,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "3499020a-9f1f-43e8-9d1a-2517210fb5bb",
+   "i": 177,
+   "payload": {
+    "q": "widget",
+    "limit": "\\;0"
+   },
+   "latency_ms": 15.867900045122951,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "c8f3b954-175d-42cd-a770-7a589850f528",
+   "i": 178,
+   "payload": {
+    "q": "${7*7}"
+   },
+   "latency_ms": 16.053600003942847,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "f1dd05d8-7ebd-4295-829c-3d7c72a6d532",
+   "i": 179,
+   "payload": {
+    "q": "wi",
+    "limit": "\"0"
+   },
+   "latency_ms": 15.589200018439442,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "83efd007-6322-40d7-9ff2-746d8e2c1642",
+   "i": 180,
+   "payload": {
+    "q": "true",
+    "limit": "10"
+   },
+   "latency_ms": 12.75509997503832,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "16a70407-25fc-4a85-90e6-42be357b797f",
+   "i": 181,
+   "payload": {
+    "q": "widget",
+    "limit": ""
+   },
+   "latency_ms": 15.476599975954741,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "98e0ba24-7ac9-49ff-abd1-428e0d6f5a48",
+   "i": 182,
+   "payload": {
+    "q": "",
+    "limit": ""
+   },
+   "latency_ms": 15.795900020748377,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "2e6377d0-e211-4538-9fd2-b5e090ffafad",
+   "i": 183,
+   "payload": {
+    "q": "widgetidget",
+    "limit": "$"
+   },
+   "latency_ms": 15.92409994918853,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "7d1338a0-7f51-40e4-ad42-853a88508611",
+   "i": 184,
+   "payload": {
+    "q": "widget"
+   },
+   "latency_ms": 12.991599971428514,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "931134d0-3ca9-4c2a-825b-17e3e1e21696",
+   "i": 185,
+   "payload": {
+    "q": "widget",
+    "limit": ""
+   },
+   "latency_ms": 13.448100013192743,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "41481343-55c5-49c1-b1d7-907cf0ed03e7",
+   "i": 186,
+   "payload": {
+    "q": "#",
+    "limit": "10"
+   },
+   "latency_ms": 13.36839998839423,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "59c0e900-d6e6-4427-a331-aa747bcd2662",
+   "i": 187,
+   "payload": {
+    "q": "w' OR '1'='1idget",
+    "limit": "10"
+   },
+   "latency_ms": 15.006900008302182,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "aaf8c3c3-260a-4daf-bbc0-dec5c3a0a8a0",
+   "i": 188,
+   "payload": {
+    "q": "...com/widget",
+    "limit": "10"
+   },
+   "latency_ms": 12.900899979285896,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 500,
+   "body": "{\"error\":\"sqlite3.OperationalError: unrecognized token: \\\"' LIMIT 10\\\"\"}\n",
+   "body_len": 73,
+   "cid": "68a7060f-c159-4346-bdb5-2e85117b0e1b",
+   "i": 189,
+   "payload": {
+    "q": "'",
+    "limit": "10"
+   },
+   "latency_ms": 14.602300012484193,
+   "client_interesting": true,
+   "depth": 3,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": true
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"q required\"}\n",
+   "body_len": 23,
+   "cid": "56964ace-bf7c-48bf-95b9-9c6b7472e535",
+   "i": 190,
+   "payload": {
+    "limit": "10"
+   },
+   "latency_ms": 13.524500012863427,
+   "client_interesting": false,
+   "depth": 0,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "88ee0335-48e7-470e-91ca-924158d99d09",
+   "i": 191,
+   "payload": {
+    "q": "widge../t",
+    "limit": "2147483648"
+   },
+   "latency_ms": 13.937099953182042,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "99f958af-5c7b-4a30-884c-4e7dc28cb05c",
+   "i": 192,
+   "payload": {
+    "q": "widRet",
+    "limit": "%00"
+   },
+   "latency_ms": 13.28089996241033,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "c1d77b45-6722-4bf4-806e-4f7d56818e32",
+   "i": 193,
+   "payload": {
+    "q": "wid<script>alert(1)</script>get",
+    "limit": "' OR 1'='1"
+   },
+   "latency_ms": 14.188100001774728,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "3ee8b36d-9285-4718-8105-75ec5127ae3b",
+   "i": 194,
+   "payload": {
+    "q": true,
+    "limit": "10"
+   },
+   "latency_ms": 14.430999988690019,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "cb642ca1-c25c-43ca-bf85-bb566ed90ed9",
+   "i": 195,
+   "payload": {
+    "q": "widget",
+    "limit": "1'$"
+   },
+   "latency_ms": 13.152899977285415,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[[1,\"widget\",9.99]]}\n",
+   "body_len": 29,
+   "cid": "77d5ddb5-d642-4bed-b099-cbbea8ca6867",
+   "i": 196,
+   "payload": {
+    "q": "widget",
+    "limit": "1010"
+   },
+   "latency_ms": 1.6917000175453722,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 200,
+   "body": "{\"rows\":[]}\n",
+   "body_len": 12,
+   "cid": "94cf08f0-0f1e-47e4-bd35-7c12d3edad13",
+   "i": 197,
+   "payload": {
+    "q": "0",
+    "limit": "2147483648"
+   },
+   "latency_ms": 12.997300014831126,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": true,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "de32ae96-a6ae-41d8-a7cc-e062dbfdd78c",
+   "i": 198,
+   "payload": {
+    "q": "widgetdget",
+    "limit": "${7*7}"
+   },
+   "latency_ms": 13.801999972201884,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"limit must be an integer\"}\n",
+   "body_len": 37,
+   "cid": "db5b3704-455a-4bc9-8577-37cf64043dd6",
+   "i": 199,
+   "payload": {
+    "q": "%00",
+    "limit": "' OR '1'='1[]"
+   },
+   "latency_ms": 13.999000017065555,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  }
+ ]
+}

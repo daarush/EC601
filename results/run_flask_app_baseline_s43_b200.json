@@ -1,0 +1,3406 @@
+{
+ "meta": {
+  "target": "flask_app",
+  "strategy": "baseline",
+  "seed": 43,
+  "budget": 200
+ },
+ "summary": {
+  "requests": 200,
+  "first_interesting": null,
+  "interesting_total": 0,
+  "max_depth": 6,
+  "sink_hits": 0,
+  "status_counts": {
+   "400": 199,
+   "403": 1
+  }
+ },
+ "records": [
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "17b8dd87-d97c-4507-9c7f-e97ca2030857",
+   "i": 0,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hello world"
+   },
+   "latency_ms": 10.342599998693913,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "297a89ab-d9dd-44c5-91a4-d157504c8ed9",
+   "i": 1,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hello wLrld"
+   },
+   "latency_ms": 15.694800007622689,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "d37a235a-db04-4121-a6e9-465bd5c07a3e",
+   "i": 2,
+   "payload": {
+    "username": null,
+    "query": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+   },
+   "latency_ms": 2.153499983251095,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "b0feea77-9b52-45ca-980b-57834e67028a",
+   "i": 3,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hello wo\"ld"
+   },
+   "latency_ms": 12.128599977586418,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "02ad9b73-bab5-4638-b70a-e3ffff8e3ae6",
+   "i": 4,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hello wor' OR '1'='1ld"
+   },
+   "latency_ms": 13.590499991551042,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "b6711c10-16cd-427a-8f6c-520e16217b3d",
+   "i": 5,
+   "payload": {
+    "query": "hello world",
+    "username": "0"
+   },
+   "latency_ms": 14.342200011014938,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "a0e717ba-28f5-4073-93de-6ade6a6f2228",
+   "i": 6,
+   "payload": {
+    "username": [],
+    "query": "hello word"
+   },
+   "latency_ms": 13.288800022564828,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "4a6b4f65-d9c7-4ad3-8469-d472fa56fd55",
+   "i": 7,
+   "payload": {
+    "username": "@",
+    "query": "he"
+   },
+   "latency_ms": 1.9343000021763146,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "ee043e3b-01b0-4a53-b368-7f5d3cba66ec",
+   "i": 8,
+   "payload": {
+    "username": "'",
+    "query": "hello wold"
+   },
+   "latency_ms": 1.7139000119641423,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "813bf737-56e9-4560-89a4-e1660c7a11c0",
+   "i": 9,
+   "payload": {
+    "username": "alice@exadple.com",
+    "query": "helloworld"
+   },
+   "latency_ms": 24.673899984918535,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "0e13cb9e-6e95-40ac-88c9-4fc2463d53e4",
+   "i": 10,
+   "payload": {
+    "username": ":",
+    "query": "he0llo world"
+   },
+   "latency_ms": 15.572800009977072,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "450309bb-d2ea-4073-a08c-7995fb409b2e",
+   "i": 11,
+   "payload": {
+    "username": "-1",
+    "query": null
+   },
+   "latency_ms": 15.481699956580997,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "e6454fbf-d89e-4b28-8f7d-326bdf58ef15",
+   "i": 12,
+   "payload": {
+    "username": "alice@example.comlice@example.com",
+    "query": "'\ud83d\ude00"
+   },
+   "latency_ms": 23.543700051959604,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "dbdd21f8-9782-4101-af78-f437f4576d02",
+   "i": 13,
+   "payload": {
+    "username": [],
+    "query": "hello world"
+   },
+   "latency_ms": 1.8905000179074705,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "6cca19d8-f789-41c7-b32c-93b0084cfae0",
+   "i": 14,
+   "payload": {
+    "query": "hello world"
+   },
+   "latency_ms": 19.13640002021566,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "637883c5-d9c5-49be-a57b-c71c80e3887d",
+   "i": 15,
+   "payload": {
+    "username": "alice@e' OR '1'='1ample.com",
+    "query": "hel0o world"
+   },
+   "latency_ms": 16.523299971595407,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "3bf80ff1-3977-41de-8be4-1251cac20959",
+   "i": 16,
+   "payload": {
+    "username": "alice@examle.com",
+    "query": "_"
+   },
+   "latency_ms": 13.985500030685216,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "4ea1c5f4-b7e5-4099-b21b-263bbc519deb",
+   "i": 17,
+   "payload": {
+    "username": "alice@exmple.com",
+    "query": "hello world"
+   },
+   "latency_ms": 13.649800035636872,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "cb213562-5910-4a60-b156-2d4bb7309c54",
+   "i": 18,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hello wrldhello wrld"
+   },
+   "latency_ms": 15.894500014837831,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "708c7444-bb63-4ddd-8664-e3e1986dbb50",
+   "i": 19,
+   "payload": {
+    "username": "alice@exa+ple.com",
+    "query": "hello "
+   },
+   "latency_ms": 15.842499968130141,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "a413b627-2806-4e8e-8b89-4c39fb7b005a",
+   "i": 20,
+   "payload": {
+    "username": "ali>ce@example.com@example.com",
+    "query": "helo world"
+   },
+   "latency_ms": 15.065199986565858,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "9f0978bd-9cdd-4cff-ac2e-c99fe25af557",
+   "i": 21,
+   "payload": {
+    "username": "alice@example.",
+    "query": "hello world"
+   },
+   "latency_ms": 15.213199949357659,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "1e5f7c4f-5a12-4da3-baed-ef5d2623ab92",
+   "i": 22,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "T"
+   },
+   "latency_ms": 13.523400004487485,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "1f1592b0-58b6-4ffa-b02b-422aa7ee98d8",
+   "i": 23,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "--"
+   },
+   "latency_ms": 13.060699973721057,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 403,
+   "body": "{\"error\":\"Query blocked by security filter\"}\n",
+   "body_len": 45,
+   "cid": "20ff45f8-6658-4767-bf52-f960706dd159",
+   "i": 24,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hello worldlo<script>alert(1)</script> world"
+   },
+   "latency_ms": 13.08099995367229,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "d39c6583-0749-4cb6-b112-269b66acc3d6",
+   "i": 25,
+   "payload": {
+    "username": "alice@example.come@example.comample.come@example.com",
+    "query": "heCllo world"
+   },
+   "latency_ms": 13.92110000597313,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "125c0849-fd95-4248-9a2f-bec0848fd5d1",
+   "i": 26,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "2147483648"
+   },
+   "latency_ms": 14.5448999828659,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "fc7f70ed-ff79-4907-9e8a-87478524c16b",
+   "i": 27,
+   "payload": {
+    "username": "alice@example.com",
+    "query": ""
+   },
+   "latency_ms": 13.230500044301152,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "7d9671fc-f5cb-49e8-b86c-6f0bf94bc461",
+   "i": 28,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hell world"
+   },
+   "latency_ms": 13.931899971794337,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "efa463d5-6dfe-42ac-9a27-1baa630e5104",
+   "i": 29,
+   "payload": {
+    "username": "alice@examplecom",
+    "query": "hello world"
+   },
+   "latency_ms": 14.087399991694838,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "36b11cd8-b5f6-4bc2-9324-45e8b27b983a",
+   "i": 30,
+   "payload": {
+    "username": "\"",
+    "query": "h*ello world"
+   },
+   "latency_ms": 13.794800033792853,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "f7c2ff0d-90dd-4149-b22d-5ab3f4486020",
+   "i": 31,
+   "payload": {
+    "query": "hello orld"
+   },
+   "latency_ms": 13.408800004981458,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "c938e4aa-cb33-448c-8b41-e8e028a8537c",
+   "i": 32,
+   "payload": {
+    "query": "hello world",
+    "username": "-1"
+   },
+   "latency_ms": 14.375600032508373,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "d309533b-5ccf-4816-8ce7-59b6d988205f",
+   "i": 33,
+   "payload": {
+    "username": "Nonene",
+    "query": "hello world"
+   },
+   "latency_ms": 12.673000048380345,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "03daf5c6-5d45-4a90-bc7f-a00d94d60148",
+   "i": 34,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "../../etc/passwd"
+   },
+   "latency_ms": 16.655200044624507,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "21777ba8-a74d-4075-9451-32a3a1ed497c",
+   "i": 35,
+   "payload": {
+    "username": "\ud83d\ude00",
+    "query": "hello"
+   },
+   "latency_ms": 2.479699964169413,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "ae2ac745-63c4-4b0c-bb53-3690ab9ab4c0",
+   "i": 36,
+   "payload": {
+    "username": "ali",
+    "query": "hello world"
+   },
+   "latency_ms": 12.30340002803132,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "235e181b-3996-4883-b045-402432d6d806",
+   "i": 37,
+   "payload": {
+    "username": "alice@example.co;m",
+    "query": "hello world"
+   },
+   "latency_ms": 15.118999988771975,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Local part must be 5-50 chars\"}\n",
+   "body_len": 42,
+   "cid": "4d1b181d-ad3e-406d-a569-bc22b14f03ee",
+   "i": 38,
+   "payload": {
+    "username": "alie@example.com",
+    "query": "heElo world"
+   },
+   "latency_ms": 15.937099989969283,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "6144cb4d-b64f-4a6f-8609-60f0c3a9fa12",
+   "i": 39,
+   "payload": {
+    "username": "alice@example.comce@example.com",
+    "query": "hello` world"
+   },
+   "latency_ms": 15.362999984063208,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "2591ddf2-6391-4772-a3c2-aca1b178c0f0",
+   "i": 40,
+   "payload": {
+    "username": true,
+    "query": "true"
+   },
+   "latency_ms": 2.0531000336632133,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "56961ebc-559e-48ac-a21d-0e509827f805",
+   "i": 41,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "%00hello wrld"
+   },
+   "latency_ms": 14.083800022490323,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "7c14c183-644f-488c-b1fc-451d369e67f0",
+   "i": 42,
+   "payload": {
+    "username": "alice@example.comce@example.com",
+    "query": "%00"
+   },
+   "latency_ms": 15.02500002970919,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "25b3cfa0-5398-47d1-9eee-b5e2409e901c",
+   "i": 43,
+   "payload": {
+    "username": "aliUe@example.com",
+    "query": "hell"
+   },
+   "latency_ms": 16.073199978563935,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "64baa22c-e857-407a-aff4-b2a69a49ab2b",
+   "i": 44,
+   "payload": {
+    "username": "alice@example.com",
+    "query": " "
+   },
+   "latency_ms": 15.31669998075813,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "6b1075f8-0211-4ccf-b1da-54fdddfc6071",
+   "i": 45,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "\ud83d\ude00"
+   },
+   "latency_ms": 14.902700029779226,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "cdfb6408-e18f-4d02-a42a-b7331240d6ca",
+   "i": 46,
+   "payload": {
+    "query": "hello world",
+    "username": "%s%s%s"
+   },
+   "latency_ms": 13.40100000379607,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "4ef7d565-32a4-4c2d-9e57-4a1ee86a92e7",
+   "i": 47,
+   "payload": {
+    "username": "alice@example.comple.com",
+    "query": "hello "
+   },
+   "latency_ms": 13.133800006471574,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "390f0861-3eba-435e-8d76-59d13b63c437",
+   "i": 48,
+   "payload": {
+    "username": "aDice@example.om",
+    "query": "hello world"
+   },
+   "latency_ms": 13.450099970214069,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "31922a62-f853-41d3-8c23-11f46018933b",
+   "i": 49,
+   "payload": {
+    "username": "alice@exampl.#om",
+    "query": "hello worldhello world"
+   },
+   "latency_ms": 13.678400020580739,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "87544b10-1bf2-4bf1-8d43-0aad8920fad1",
+   "i": 50,
+   "payload": {
+    "username": "%00",
+    "query": "hello worl"
+   },
+   "latency_ms": 14.339999994263053,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "da5b543b-d2f7-42ee-a3c5-3df2ef5140b5",
+   "i": 51,
+   "payload": {
+    "username": "alic!@example.com",
+    "query": "${7*7}hello world"
+   },
+   "latency_ms": 13.623999955598265,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "6481b826-2366-456a-b9ce-a264500549fd",
+   "i": 52,
+   "payload": {
+    "username": "alice@example.com",
+    "query": ";"
+   },
+   "latency_ms": 13.989099999889731,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "db2ec11c-e766-4c9b-bf57-1177ab7170ce",
+   "i": 53,
+   "payload": {
+    "username": "alice@example.com@example.com",
+    "query": "[G]"
+   },
+   "latency_ms": 13.488199969287962,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "4b8a2d1f-ca0b-4e8f-9ccc-5fda12a72100",
+   "i": 54,
+   "payload": {
+    "username": "true",
+    "query": "hello worldd"
+   },
+   "latency_ms": 14.82949999626726,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "b67c434a-fe3f-4c82-ab06-680fbaee11c2",
+   "i": 55,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hell world"
+   },
+   "latency_ms": 13.314099982380867,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "bf41fc7f-19af-4361-9929-c6f87e6a2bdc",
+   "i": 56,
+   "payload": {
+    "query": "hello world"
+   },
+   "latency_ms": 12.598499946761876,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "92b66a51-cd72-4f40-b45b-db1e5d5e1042",
+   "i": 57,
+   "payload": {
+    "username": "'",
+    "query": "hello world"
+   },
+   "latency_ms": 14.631500001996756,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "272eca1c-6f34-487c-b38a-dcc358297288",
+   "i": 58,
+   "payload": {
+    "username": "\ud83d\ude00",
+    "query": "hello worldd"
+   },
+   "latency_ms": 14.286599995102733,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "35f2ffa2-5e2b-4abc-af07-4eef446e3a86",
+   "i": 59,
+   "payload": {
+    "username": "alice@example.comce@example.com",
+    "query": "h"
+   },
+   "latency_ms": 14.00560000911355,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "273c0c83-7faf-4ef2-9852-5d34a2712eb5",
+   "i": 60,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hello wor"
+   },
+   "latency_ms": 13.267700036522001,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "3081f0f4-a9e2-4386-a806-55bc3def81a0",
+   "i": 61,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "${7*7}"
+   },
+   "latency_ms": 14.082500012591481,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "b91f3e94-cb79-4cd7-9b15-1a92e74549c5",
+   "i": 62,
+   "payload": {
+    "username": "alice@cexample.com",
+    "query": "null"
+   },
+   "latency_ms": 14.432500000111759,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "db2cde3c-b7ba-4283-9ccd-08fe4e080323",
+   "i": 63,
+   "payload": {
+    "username": "Wlice@example.com",
+    "query": "hello world"
+   },
+   "latency_ms": 14.180800004396588,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "319f8208-1e91-45cf-89da-0902813fb283",
+   "i": 64,
+   "payload": {
+    "username": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "query": "hello world"
+   },
+   "latency_ms": 12.680199986789376,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "e937da39-0354-451e-b62b-8bb395344bdf",
+   "i": 65,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hello wo"
+   },
+   "latency_ms": 12.999400030821562,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "af7cceff-fd7c-43a6-bdf2-74927635bbb8",
+   "i": 66,
+   "payload": {
+    "username": "alice@example0.com",
+    "query": "hello world"
+   },
+   "latency_ms": 14.74800001597032,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "ec4c1c18-4b80-40e1-9fea-40fe814db596",
+   "i": 67,
+   "payload": {
+    "username": "../",
+    "query": "\""
+   },
+   "latency_ms": 13.922699959948659,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "304d52e2-6658-4a0b-910c-3351157eacd7",
+   "i": 68,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "' OR '1"
+   },
+   "latency_ms": 14.120399951934814,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "90e02944-9fc6-4592-8938-2f4b47968379",
+   "i": 69,
+   "payload": {
+    "username": ")lice@example.com",
+    "query": "true"
+   },
+   "latency_ms": 14.952900004573166,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "4dab43aa-469d-4223-9570-f786f9379033",
+   "i": 70,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "null"
+   },
+   "latency_ms": 12.740799982566386,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "be72482a-b3b5-4618-96d1-31dc17f52017",
+   "i": 71,
+   "payload": {
+    "username": 0,
+    "query": "helo world"
+   },
+   "latency_ms": 13.878900033887476,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "22dd0bc6-111f-491c-a4e9-b4a23dbdfa3c",
+   "i": 72,
+   "payload": {
+    "username": "alice@examp9le.com",
+    "query": "hell"
+   },
+   "latency_ms": 15.312200004700571,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "67a2fcb2-77cf-45f6-97cc-f5da7a9ff6eb",
+   "i": 73,
+   "payload": {
+    "username": "alice@eample.com",
+    "query": "hello world"
+   },
+   "latency_ms": 13.237599981948733,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "3aa028f6-1787-4a85-89cc-3a5cf0498155",
+   "i": 74,
+   "payload": {
+    "username": "alice@xample--.com",
+    "query": "hello world"
+   },
+   "latency_ms": 13.090999971609563,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "ee306261-8f6c-469d-9594-672c7a8a9c00",
+   "i": 75,
+   "payload": {
+    "username": "alice@example.com",
+    "query": {}
+   },
+   "latency_ms": 13.022200029809028,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "a818ced0-be42-4cde-aec5-c98458d25609",
+   "i": 76,
+   "payload": {
+    "username": "alice@example.comample.com",
+    "query": "hello world"
+   },
+   "latency_ms": 14.541100012138486,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "5c7d2ccd-eaed-4ca1-8fc8-af9869dd48b4",
+   "i": 77,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+   },
+   "latency_ms": 14.406700036488473,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "bc525e8c-be0f-4f5e-97ce-17d2ee0d3b6e",
+   "i": 78,
+   "payload": {
+    "username": true,
+    "query": "hello world"
+   },
+   "latency_ms": 12.087800016161054,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "844cdeb1-1a64-48bb-ba1f-710a23528c01",
+   "i": 79,
+   "payload": {
+    "username": "alice@example.come.com",
+    "query": "hello worl\\"
+   },
+   "latency_ms": 15.675799979362637,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "4981eade-73c0-4d4d-9f97-2ec86dc66a6c",
+   "i": 80,
+   "payload": {
+    "username": "alice@examp",
+    "query": "tello world"
+   },
+   "latency_ms": 1.4592999941669405,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "12c3ef53-6f41-4830-965c-5577cc624638",
+   "i": 81,
+   "payload": {
+    "username": "alice@exaMmple.commple.com",
+    "query": "hello worlz"
+   },
+   "latency_ms": 12.69150001462549,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "fad65c2e-7384-4f19-98ae-3ea08bfdb43f",
+   "i": 82,
+   "payload": {
+    "username": "@",
+    "query": "@"
+   },
+   "latency_ms": 13.598299992736429,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "b1a96d99-bf85-4274-99b3-f4bb0979472a",
+   "i": 83,
+   "payload": {
+    "username": "alice@example.co",
+    "query": "hello world"
+   },
+   "latency_ms": 13.633200025651604,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "bf0208e4-4f00-44a5-a903-6a5151bd2757",
+   "i": 84,
+   "payload": {
+    "username": "admin",
+    "query": "hell world"
+   },
+   "latency_ms": 14.21150000533089,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "323023a7-fb30-4e59-9c86-eaf784a39470",
+   "i": 85,
+   "payload": {
+    "username": "true",
+    "query": "hello world"
+   },
+   "latency_ms": 14.493900001980364,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "6baf3c31-cf04-4a48-aa03-097d629fb6f0",
+   "i": 86,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "AAAAAAAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+   },
+   "latency_ms": 13.308800000231713,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "d1129240-cf57-4c70-90ed-c24816771b65",
+   "i": 87,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "root"
+   },
+   "latency_ms": 13.689099985640496,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "cd2d878e-ccb7-4e62-8715-2b24f7c1b9c0",
+   "i": 88,
+   "payload": {
+    "username": 3.14,
+    "query": "hello world"
+   },
+   "latency_ms": 1.9511000136844814,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "407380af-a1b6-4efa-9beb-2ef495408bc8",
+   "i": 89,
+   "payload": {
+    "username": "0",
+    "query": "ello world"
+   },
+   "latency_ms": 12.537200003862381,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "d2f4e7d5-12a7-4dd3-93b0-816c97c49262",
+   "i": 90,
+   "payload": {
+    "username": {},
+    "query": "hllo world"
+   },
+   "latency_ms": 16.241899982560426,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "6dee77a7-1702-4386-bd5b-6f97e4fd96da",
+   "i": 91,
+   "payload": {
+    "username": "ali1e@example.com",
+    "query": "%00hello world"
+   },
+   "latency_ms": 13.882900006137788,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "d6ad756e-4abf-4dc1-8ba2-494b54425b33",
+   "i": 92,
+   "payload": {
+    "query": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "username": "\u0000"
+   },
+   "latency_ms": 15.381600009277463,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "38787bdb-8351-42b3-b4e6-349f37940b94",
+   "i": 93,
+   "payload": {
+    "username": "alice@eample.com",
+    "query": "hello world"
+   },
+   "latency_ms": 16.611200000625104,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "c4b02ac9-5318-48bf-ac27-1f71247c598b",
+   "i": 94,
+   "payload": {
+    "query": "hello world"
+   },
+   "latency_ms": 1.9655999494716525,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "b23d7b62-f5ee-49fc-a718-1c93db648a1c",
+   "i": 95,
+   "payload": {
+    "username": "\"",
+    "query": "hello world"
+   },
+   "latency_ms": 14.075799961574376,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "b7189c90-8f5f-406f-a51a-c7e0b6904480",
+   "i": 96,
+   "payload": {
+    "username": "alice.com@eample.com",
+    "query": "hello world"
+   },
+   "latency_ms": 13.933399983216077,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "559d44c9-f561-4470-9b82-15fd2ee24262",
+   "i": 97,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "%s%s%s"
+   },
+   "latency_ms": 16.553700028453022,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "c4a069d2-b35a-43b2-b246-7473e28377b8",
+   "i": 98,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "helo wold"
+   },
+   "latency_ms": 12.617799977306277,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "e8c44ce8-425a-44a0-943a-68ddfd2fba55",
+   "i": 99,
+   "payload": {
+    "username": "alice@examp",
+    "query": "hello wor"
+   },
+   "latency_ms": 12.843300006352365,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "5d275c01-ea20-45d5-8b89-444fb5598a83",
+   "i": 100,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "--"
+   },
+   "latency_ms": 12.522899953182787,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "0904fe69-c7b6-4e02-a584-36dd17d13ad4",
+   "i": 101,
+   "payload": {
+    "username": "alice@examIple.com",
+    "query": "hel-lo world"
+   },
+   "latency_ms": 2.086400054395199,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "09abaf88-5d52-4071-8348-50965f0801cc",
+   "i": 102,
+   "payload": {
+    "username": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "query": "hello world"
+   },
+   "latency_ms": 24.293299997225404,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "16dc39bb-a604-44de-b2d0-7ce3c7ca8cdb",
+   "i": 103,
+   "payload": {
+    "username": "alice@examUple.comalice@example.com",
+    "query": "hello world"
+   },
+   "latency_ms": 14.692400000058115,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "23f4866d-55bb-42f0-b93b-8d51ac9d6e3a",
+   "i": 104,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hello worldhello world"
+   },
+   "latency_ms": 13.834400044288486,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "b33def10-86b3-464c-a4a0-eafbd4ea0772",
+   "i": 105,
+   "payload": {
+    "username": "alice@xam\\ple.com",
+    "query": "hello world"
+   },
+   "latency_ms": 2.686999971047044,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "a7e0a2b7-1eb9-47eb-aa24-cbc4cab96e7a",
+   "i": 106,
+   "payload": {
+    "username": "alice@example.com",
+    "query": 3.14
+   },
+   "latency_ms": 26.01079997839406,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "52993288-b12b-453f-b2ac-67d899a81da3",
+   "i": 107,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "\""
+   },
+   "latency_ms": 14.653299993369728,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "9d2187d7-2742-4663-ab54-de7feb3e7fb2",
+   "i": 108,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "--"
+   },
+   "latency_ms": 15.88740001898259,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "a4afa561-548c-4203-bdf1-111f7d42f1ac",
+   "i": 109,
+   "payload": {
+    "username": "alice@example",
+    "query": "hello world"
+   },
+   "latency_ms": 15.239100030157715,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "d19ff4f5-2dab-443a-9bdb-6507b3a88e60",
+   "i": 110,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "helloU world"
+   },
+   "latency_ms": 16.65030000731349,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "67598802-0d58-4122-8aa8-9f7d5b07d88f",
+   "i": 111,
+   "payload": {
+    "username": "alice@example.comexample.com",
+    "query": "true"
+   },
+   "latency_ms": 14.705599984154105,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "97dea7a9-9a11-4297-b9a0-5cba2f958663",
+   "i": 112,
+   "payload": {
+    "query": "hello w%00orld"
+   },
+   "latency_ms": 23.31429999321699,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "6a575095-dea4-412e-a5e2-f13d87d4eca7",
+   "i": 113,
+   "payload": {
+    "username": "alice@example.com",
+    "query": 1
+   },
+   "latency_ms": 20.269299973733723,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "2869d559-91d5-4226-9f9a-22b29704bf3f",
+   "i": 114,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hello worl"
+   },
+   "latency_ms": 14.664700021967292,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Local part must be 5-50 chars\"}\n",
+   "body_len": 42,
+   "cid": "2aff5bdf-65d1-4bce-b197-7348725ede02",
+   "i": 115,
+   "payload": {
+    "username": "alce@example.com",
+    "query": "../"
+   },
+   "latency_ms": 15.865199966356158,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "58cc998c-09cc-45e1-964a-f5f69026c349",
+   "i": 116,
+   "payload": {
+    "username": "alice@exampl",
+    "query": "hello world"
+   },
+   "latency_ms": 14.283899974543601,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "e9077e18-1bca-4d61-8bd9-10804497fd01",
+   "i": 117,
+   "payload": {
+    "username": "alic--e@example.com",
+    "query": "hello world"
+   },
+   "latency_ms": 1.9088000408373773,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "3e60faea-3949-4676-bfb6-111a8e1a9f41",
+   "i": 118,
+   "payload": {
+    "username": "../",
+    "query": "hello worldllo world"
+   },
+   "latency_ms": 11.543500004336238,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "505005a5-926c-4bae-b792-507e2ca3ca16",
+   "i": 119,
+   "payload": {
+    "username": "alice@exam",
+    "query": "@hello world"
+   },
+   "latency_ms": 13.07649997761473,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "8d387b5a-71c1-4dd5-a203-a3bcb903a5fc",
+   "i": 120,
+   "payload": {
+    "username": 0,
+    "query": "hello world"
+   },
+   "latency_ms": 13.120300020091236,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "389eef1a-0dd1-41ab-8f7d-7481e011a7e2",
+   "i": 121,
+   "payload": {
+    "username": "alice@examp' OR '1'='1le.com",
+    "query": "hello worl"
+   },
+   "latency_ms": 13.274399971123785,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "89afc49c-5e0f-4728-b5fa-937d76aabb94",
+   "i": 122,
+   "payload": {
+    "query": "hello "
+   },
+   "latency_ms": 11.55200001085177,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "0a433c9c-c203-49d0-bd07-b8419c215e68",
+   "i": 123,
+   "payload": {
+    "username": "alice@example.om",
+    "query": "${7*7}"
+   },
+   "latency_ms": 14.06510005472228,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "4c3a14fe-bea1-4a09-88b0-9d087b1168da",
+   "i": 124,
+   "payload": {
+    "username": "${7*7}\ud83d\ude00",
+    "query": "hello world"
+   },
+   "latency_ms": 12.535599991679192,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "e1982977-785c-486c-b1fa-9d38edf4bbee",
+   "i": 125,
+   "payload": {
+    "username": "\u0000",
+    "query": "he\u000blo world"
+   },
+   "latency_ms": 13.235499965958297,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "88178841-b46b-4dd9-8b32-d1b70c06345d",
+   "i": 126,
+   "payload": {
+    "username": "alice@"
+   },
+   "latency_ms": 12.827400001697242,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Local part must be 5-50 chars\"}\n",
+   "body_len": 42,
+   "cid": "b69776c6-7087-4d27-9e23-b47b134b8413",
+   "i": 127,
+   "payload": {
+    "username": "lice@example.com",
+    "query": "hello world"
+   },
+   "latency_ms": 13.068100030068308,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "5c4e8c23-80b1-42a9-96a3-a865c169a1c1",
+   "i": 128,
+   "payload": {
+    "username": "alice@example.c*m",
+    "query": "0"
+   },
+   "latency_ms": 15.059700002893806,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "d8be8f86-979b-4e39-9d87-cf8da074a0ee",
+   "i": 129,
+   "payload": {
+    "username": "@",
+    "query": "hello worl"
+   },
+   "latency_ms": 13.494100014213473,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "967b5f0a-983a-44d4-bcff-da1c711d65a2",
+   "i": 130,
+   "payload": {
+    "username": "\"",
+    "query": "hello worldrld"
+   },
+   "latency_ms": 13.008900044951588,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "0d96eac8-4834-4556-b18c-f9b867451c93",
+   "i": 131,
+   "payload": {
+    "username": "alice@example.com"
+   },
+   "latency_ms": 14.385099988430738,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "81781991-e13e-4c0c-8c07-8703b279f7c3",
+   "i": 132,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hell< worl"
+   },
+   "latency_ms": 13.923900027293712,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "a8a98e4f-700b-4ec4-bd8c-478eaa756b4d",
+   "i": 133,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "helMlo worMld"
+   },
+   "latency_ms": 13.638700009323657,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "3dd4ec4d-baa0-43d8-b562-0e6d03accbdf",
+   "i": 134,
+   "payload": {
+    "username": "alice@exampleU.co",
+    "query": "he_lo world"
+   },
+   "latency_ms": 14.33760003419593,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "af74d8d9-5904-4173-9eef-a87f77746e42",
+   "i": 135,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hello sworld"
+   },
+   "latency_ms": 13.52130004670471,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "bd9b36cd-2a7a-4062-a1e1-5cbbfc32aa34",
+   "i": 136,
+   "payload": {
+    "username": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "query": "root"
+   },
+   "latency_ms": 13.2368000340648,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "55809fdf-0d3d-4e8e-bcd4-9faf51533708",
+   "i": 137,
+   "payload": {
+    "query": "hel?o world"
+   },
+   "latency_ms": 14.444700034800917,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "12b10647-0635-4250-859e-e35b8a5427fd",
+   "i": 138,
+   "payload": {
+    "username": "alice@eample.com",
+    "query": "hello world"
+   },
+   "latency_ms": 14.041799993719906,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "5bebf407-cb22-41de-b634-0dee207e0756",
+   "i": 139,
+   "payload": {
+    "username": true,
+    "query": "hello world"
+   },
+   "latency_ms": 13.65899998927489,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "dd8c2fe4-90de-4572-9298-03ee2aae45df",
+   "i": 140,
+   "payload": {
+    "username": "alic'e@example.com",
+    "query": "hello wol"
+   },
+   "latency_ms": 13.531300006434321,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "75a797d8-95d1-498d-9d37-635988948d25",
+   "i": 141,
+   "payload": {
+    "username": "2147483648",
+    "query": "hello wor(ld"
+   },
+   "latency_ms": 13.84109997889027,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "4cf38bbf-d8bd-4d55-bccb-f1130854aa8b",
+   "i": 142,
+   "payload": {
+    "username": "alice@example",
+    "query": "hello"
+   },
+   "latency_ms": 14.145399967674166,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "c336de95-3c7e-418f-ad30-e97c7633fd33",
+   "i": 143,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hell world"
+   },
+   "latency_ms": 14.126499998383224,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "bc2e480f-e262-4f7a-a67c-fd05e4947423",
+   "i": 144,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "../hell/hell"
+   },
+   "latency_ms": 1.8814999493770301,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "adbdf362-0fa7-436d-8943-8588726237a3",
+   "i": 145,
+   "payload": {
+    "query": "hello world"
+   },
+   "latency_ms": 11.823399981949478,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "9c07e02f-b0e0-4426-94b1-574282faf453",
+   "i": 146,
+   "payload": {
+    "username": "alice@example.com",
+    "query": ";"
+   },
+   "latency_ms": 14.50660004047677,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "aaf8a308-df3f-49c3-85ad-ffd84facf949",
+   "i": 147,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hell world"
+   },
+   "latency_ms": 13.669800013303757,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "620ed0d4-98e8-4316-ae16-0382ea114cbe",
+   "i": 148,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hell@o world"
+   },
+   "latency_ms": 14.229900029022247,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "d3aba6ba-81bd-40d3-9f95-a1aa3efacdcb",
+   "i": 149,
+   "payload": {
+    "username": "alice@examply.com",
+    "query": "hello adminworld"
+   },
+   "latency_ms": 13.268200040329248,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "0fcb196b-c84d-4740-bf16-a1c49062005d",
+   "i": 150,
+   "payload": {
+    "username": "alice@example.",
+    "query": "hello wo.comrld"
+   },
+   "latency_ms": 13.738800014834851,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "5d45afb0-165f-4f8e-a351-57ee95266c5b",
+   "i": 151,
+   "payload": {
+    "username": "true",
+    "query": "hello worldworld"
+   },
+   "latency_ms": 14.131699979770929,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "9116ac79-be92-4ed5-91b6-8b3260bc4af9",
+   "i": 152,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hello --wo"
+   },
+   "latency_ms": 2.2362000308930874,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "8b076d45-ef3a-4738-8f2d-b9a8c9efbce4",
+   "i": 153,
+   "payload": {
+    "username": "0",
+    "query": "hello world"
+   },
+   "latency_ms": 13.997000001836568,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "8c631b0f-985f-4494-a22e-e0b9ee8d7324",
+   "i": 154,
+   "payload": {
+    "username": "alice@examp",
+    "query": "%00"
+   },
+   "latency_ms": 12.344399990979582,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "df2fa94a-f1ba-4a94-bc34-39c8565c0790",
+   "i": 155,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hIello wold"
+   },
+   "latency_ms": 12.705800007097423,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "84c54036-ec01-44dd-acc3-5c2c287b1b4e",
+   "i": 156,
+   "payload": {
+    "username": "alice@example.cm",
+    "query": "ull"
+   },
+   "latency_ms": 14.783899998292327,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "4a55340b-8c22-4365-8e0b-af69d0639ca8",
+   "i": 157,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hell'o world"
+   },
+   "latency_ms": 13.155599997844547,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Local part must be 5-50 chars\"}\n",
+   "body_len": 42,
+   "cid": "d77d217b-20a7-4129-ace7-ac83ba7da207",
+   "i": 158,
+   "payload": {
+    "username": "alce@example.com",
+    "query": "hello world"
+   },
+   "latency_ms": 1.7793999868445098,
+   "client_interesting": false,
+   "depth": 4,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "c16afd94-1b16-4194-bdc0-4e962115ec93",
+   "i": 159,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "214748364"
+   },
+   "latency_ms": 25.697599980048835,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "fb870b46-422d-43c0-8f49-de0f0562886b",
+   "i": 160,
+   "payload": {
+    "query": "hello world"
+   },
+   "latency_ms": 14.983000000938773,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "8369f607-880d-426c-b673-e1d91a6f10b2",
+   "i": 161,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "--"
+   },
+   "latency_ms": 2.24309996701777,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "465c18ea-18bb-47f9-8e73-02f0d2e84a1e",
+   "i": 162,
+   "payload": {
+    "username": "alice",
+    "query": "%s%s%s"
+   },
+   "latency_ms": 2.3006999981589615,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "02755aaf-4237-4b21-af41-ee84c963a0c1",
+   "i": 163,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hell;o world"
+   },
+   "latency_ms": 27.339100022800267,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "7c3206a5-1b1f-4a5e-bb50-f663ca4c7650",
+   "i": 164,
+   "payload": {
+    "username": "alice@exaNmple.com",
+    "query": ""
+   },
+   "latency_ms": 15.291199961211532,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "133e3148-2e08-4c32-a696-edd4171b354e",
+   "i": 165,
+   "payload": {
+    "username": "alice@example.comm",
+    "query": "hell` wrld"
+   },
+   "latency_ms": 15.149699989706278,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "a99af08a-cd69-4024-a625-3fbef2f51481",
+   "i": 166,
+   "payload": {
+    "username": "aliceexample.com",
+    "query": "hello world worlvd"
+   },
+   "latency_ms": 13.701700023375452,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "32097bd5-3c73-4ce2-aa17-0fa831bb1b13",
+   "i": 167,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hello word"
+   },
+   "latency_ms": 24.547800014261156,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "a97952d8-55b4-466f-895a-e72a0c52444e",
+   "i": 168,
+   "payload": {
+    "username": "alice@exam\fle.com",
+    "query": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+   },
+   "latency_ms": 18.095800012815744,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "2e72ab0d-81a5-48d5-a543-a9f271fb7433",
+   "i": 169,
+   "payload": {
+    "query": "../../etc/passwd"
+   },
+   "latency_ms": 14.836099988315254,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "88f431ab-3ead-4046-91a0-f7956968ccb4",
+   "i": 170,
+   "payload": {
+    "username": "alice@eample.com",
+    "query": "hello world"
+   },
+   "latency_ms": 1.9576000049710274,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "6a6e7cfc-ce2a-4beb-a681-e27fe23f8a57",
+   "i": 171,
+   "payload": {
+    "username": "alice@example.comxample.comle.comxample.com",
+    "query": "he[lo world"
+   },
+   "latency_ms": 13.556899968534708,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "edf82472-1a77-4183-9a8e-b1fb9597244a",
+   "i": 172,
+   "payload": {
+    "username": "tr.e",
+    "query": "hello worldld"
+   },
+   "latency_ms": 12.63509999262169,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "92851a00-3049-4c63-9468-37c63fff3346",
+   "i": 173,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+   },
+   "latency_ms": 15.391100023407489,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "778d0ee4-fb58-436c-845b-a84509264cb0",
+   "i": 174,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "true"
+   },
+   "latency_ms": 12.596100044902414,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "539c3d23-e007-46bd-8a1d-51d01d0c9ce9",
+   "i": 175,
+   "payload": {
+    "username": "",
+    "query": "hello worlv"
+   },
+   "latency_ms": 13.122800039127469,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "f92e5beb-0870-4b74-8e69-1fecd0861987",
+   "i": 176,
+   "payload": {
+    "username": "true",
+    "query": "hello world"
+   },
+   "latency_ms": 14.880899980198592,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "fc7cd1e3-87e5-476f-b3f6-55ef70fb3d7d",
+   "i": 177,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "5h"
+   },
+   "latency_ms": 14.180199999827892,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "00a09a53-b23c-4a7b-8e6d-89adbf30fb73",
+   "i": 178,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "0"
+   },
+   "latency_ms": 13.6942999670282,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "02d7d5f6-36b1-4d0e-b811-fdedb81b6513",
+   "i": 179,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hello worldd"
+   },
+   "latency_ms": 2.844999951776117,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "b3972997-1af0-47b9-a957-053d3c8cab99",
+   "i": 180,
+   "payload": {
+    "username": "alice@example.com"
+   },
+   "latency_ms": 12.55499996477738,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "a7384d88-1eff-424b-8129-02b3edae91c4",
+   "i": 181,
+   "payload": {
+    "username": "alNce@example\tcom",
+    "query": "hello world"
+   },
+   "latency_ms": 12.225100013893098,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "5d188350-9176-4ff2-83d4-a46607f479a7",
+   "i": 182,
+   "payload": {
+    "username": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "query": "root"
+   },
+   "latency_ms": 14.849899976979941,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "32165ba7-dace-4f55-9639-62807d9aecdc",
+   "i": 183,
+   "payload": {
+    "username": "alice@example.comample.com",
+    "query": "hOllo world"
+   },
+   "latency_ms": 2.3852000012993813,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "9ecffa9c-52cf-4b6b-a028-26499cb65640",
+   "i": 184,
+   "payload": {
+    "username": "\"",
+    "query": "hello world"
+   },
+   "latency_ms": 14.57300002221018,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "c884c529-8b6d-4fa6-84b9-6ba3774e4da2",
+   "i": 185,
+   "payload": {
+    "username": null,
+    "query": "hello world"
+   },
+   "latency_ms": 13.394699955824763,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "a08e27e6-b8b7-42ad-b2e4-5fb70e25553a",
+   "i": 186,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hello wo"
+   },
+   "latency_ms": 15.060300007462502,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "686069ab-da20-4a73-8e64-6c454ccd33b6",
+   "i": 187,
+   "payload": {
+    "username": "alice@example.com",
+    "query": ".com"
+   },
+   "latency_ms": 13.105699967127293,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "0a8563b2-2274-48b3-b00f-20118c03621b",
+   "i": 188,
+   "payload": {
+    "username": "Tre",
+    "query": "hello world"
+   },
+   "latency_ms": 14.682099979836494,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "426c43a4-89f7-4f1b-ab4e-059ef3134538",
+   "i": 189,
+   "payload": {
+    "username": "alice@example.com",
+    "query": ""
+   },
+   "latency_ms": 2.8019000310450792,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "8bd1b94a-a824-423d-a62a-90144564f0b6",
+   "i": 190,
+   "payload": {
+    "username": "@",
+    "query": "0"
+   },
+   "latency_ms": 24.27619998343289,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "098609dc-cd2f-4822-a69a-9eb591e8d99e",
+   "i": 191,
+   "payload": {
+    "username": "alice@exaBple.com"
+   },
+   "latency_ms": 14.950999990105629,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "e17fc646-4f75-4352-a720-d546215b5e64",
+   "i": 192,
+   "payload": {
+    "username": "admin",
+    "query": []
+   },
+   "latency_ms": 14.65159998042509,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' must be user@domain.tld\"}\n",
+   "body_len": 47,
+   "cid": "fc6dd5e8-0e17-4077-b892-8bb8cfda7433",
+   "i": 193,
+   "payload": {
+    "username": "alice@exam",
+    "query": "\""
+   },
+   "latency_ms": 12.170100002549589,
+   "client_interesting": false,
+   "depth": 2,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "15f145e6-224e-4435-bf4f-2f7a4473b259",
+   "i": 194,
+   "payload": {
+    "username": "alice@example.coG",
+    "query": "2147483648"
+   },
+   "latency_ms": 13.837700011208653,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "47a241ce-6b1b-448e-aefe-b8ebefe973ef",
+   "i": 195,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hell:o world"
+   },
+   "latency_ms": 14.830300002358854,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'query' must be >= 10 chars\"}\n",
+   "body_len": 40,
+   "cid": "c9ee6fb2-cae8-4959-a7a8-77f07e7b4f67",
+   "i": 196,
+   "payload": {
+    "username": "alice@example.com",
+    "query": 1
+   },
+   "latency_ms": 13.28099996317178,
+   "client_interesting": false,
+   "depth": 5,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "d10c6b9f-82c8-49a2-a3ae-165952c93729",
+   "i": 197,
+   "payload": {
+    "username": "aljice@xample.com",
+    "query": "ello world"
+   },
+   "latency_ms": 2.489799982868135,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"'username' and 'query' required\"}\n",
+   "body_len": 44,
+   "cid": "d3e072b0-f269-4f80-ba1f-da955a32942f",
+   "i": 198,
+   "payload": {
+    "username": "alice@example.crootom"
+   },
+   "latency_ms": 24.915300018619746,
+   "client_interesting": false,
+   "depth": 1,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  },
+  {
+   "status": 400,
+   "body": "{\"error\":\"Query must look like <OPERATION>:<argument>\"}\n",
+   "body_len": 56,
+   "cid": "b78e60bc-bcf2-4328-8e12-4102e2c26f10",
+   "i": 199,
+   "payload": {
+    "username": "alice@example.com",
+    "query": "hello wor@ld"
+   },
+   "latency_ms": 15.510199998971075,
+   "client_interesting": false,
+   "depth": 6,
+   "sink_reached": false,
+   "new_depth": false,
+   "interesting": false
+  }
+ ]
+}

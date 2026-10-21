@@ -2,6 +2,7 @@
 
 ## Team Composition
 Solo project. Aarush Duvvuri is the sole contributor.
+aarush@bu.edu
 
 ## Roles
 - Sprint Lead: Aarush (rotates N/A)

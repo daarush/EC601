@@ -1,15 +1,18 @@
-### 1. Prof. Manuel Egele (ECE / BU Secure Systems Lab)
+# Faculty Who Can Help
 
-**Why he is relevant:** 
-Prof. Egele’s research focuses heavily on systems security, binary analysis, and automated vulnerability discovery. His recent Red Hat Collaboratory award-winning project, *"HySe: hypervisor security through component-wise fuzzing"* (2024), explores bypassing complex execution states in hypervisors through targeted fuzzing. This directly mirrors my project's challenge of bypassing deep semantic validation in web apps where naive mutation fuzzers get rejected by input filters before ever reaching the vulnerable sink.
+Both entries were checked against current public pages (linked), not just the Research Areas handout.
 
-**Specific Question:** 
-"In my black-box web fuzzer, I instrument a Flask target to log 'validation stages reached' via correlation IDs to prove a payload passed semantic checks (sink reachability) rather than just triggering a superficial HTTP 5xx crash. Real-world web logic flaws often return HTTP 200 upon successful exploitation. When designing feedback loops for component-wise fuzzing in *HySe*, how did you mathematically weight 'state/sink reachability' against 'crash triggering' in your reward function when successful state corruption does not result in a traditional program crash?"
+## 1. Prof. Manuel Egele: ECE, co-director of the Secure Systems Lab (SeclaBU)
 
-### 2. Prof. Gianluca Stringhini (ECE / BU Security Lab - SeclaBU)
+**Why relevant.** His group works on fuzzing systems interfaces. One example is **HySe: Hypervisor Security through Component-Wise Fuzzing**, a Red Hat Collaboratory project that fuzzes the many interfaces a hypervisor exposes ([project page](https://research.redhat.com/blog/research_project/hyse-hypervisor-security-through-component-wise-fuzzing)). His Red Hat Research profile also lists **"No Grammar, No Problem: Towards Fuzzing the Linux Kernel without System-Call Descriptions"** ([profile](https://research.redhat.com/blog/project_member/manuel-egele/)). My Site A target has the same difficulty: the fuzzer must discover an input format (`SEARCH:<argument>`) with no grammar, only by reacting to what the server says.
 
-**Why he is relevant:** 
-Prof. Stringhini’s research bridges cybersecurity, web security, and the evaluation of AI in adversarial contexts. His 2026 paper, *"CVE-Genie: An LLM-Based Multi-Agent Framework for Reproducing CVEs"*, demonstrates using multi-agent LLMs to iteratively reason about and reproduce vulnerabilities. This directly informs my project's LLM-guided payload generation strategy, specifically how an LLM requires iterative feedback to refine attack vectors based on server responses.
+**Question.** "When fuzzing without input descriptions, which feedback signal did you find most reliable for learning input structure? In black-box web fuzzing there is no coverage, so I plan to treat server error messages ('which validation stage rejected me') as a stand-in. Would you trust that as a coverage substitute, or is it too easy to saturate or mislead?"
 
-**Specific Question:** 
-"I am batching LLM-generated payloads (50–100 per loop) to amortize API latency, but a strict 1,000-request testing budget limits my feedback loop to roughly 10–20 iterations. Based on your multi-agent architecture in *CVE-Genie*, is 10 iterations enough for an LLM to meaningfully refine its payload generation based on black-box HTTP error messages? Or, based on your evaluation of LLM reasoning limits, should I abandon fixed-request budgets in favor of fixed-token or wall-clock budgets to allow the model sufficient iterations to 'think'?"
+## 2. Prof. Gianluca Stringhini: ECE, BU Security Lab (SeclaBU)
+
+**Why relevant.** He is a senior author of **CVE-Genie**, an LLM multi-agent framework that reproduces real CVEs end to end. It reproduced 428 of 841 CVEs at an average cost of about $2.77 per CVE, and the authors point to fuzzer evaluation as a use for the resulting benchmark ([arXiv:2509.01835](https://arxiv.org/abs/2509.01835); a CCS 2026 version is hosted on the [lab site](https://seclab.bu.edu/people/gianluca/papers/cvegenie-ccs2026.pdf)). This bears directly on my LLM variant, which has to turn server feedback into better payloads under a cost limit.
+
+**Question.** "My LLM variant generates batches of 50 to 100 payloads and gets about 10 to 20 feedback rounds under a 1,000-request budget. In CVE-Genie, how many refinement rounds did agents typically need before an exploit was verified, and would you budget my comparison by tokens or dollars (as you report cost per CVE) rather than by request count?"
+
+---
+*Optional next step: each question can be sent as an email under 150 words after reading the professor's latest abstract.*

@@ -8,8 +8,10 @@ __pycache__/
 *.egg-info/
 dist/
 build/
+.pytest_cache/
+.ruff_cache/
 
-# Secrets — NEVER commit
+# Secrets: NEVER commit
 .env
 
 # IDE
@@ -17,9 +19,7 @@ build/
 .idea/
 
 # OS
-results/
 .DS_Store
 
-# Runtime output
+# Runtime output (target server logs). results/ IS committed on purpose.
 server_log*.json*
-results/
