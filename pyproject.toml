@@ -8,20 +8,14 @@ dependencies = [
     "flask>=3.0",
     "scikit-learn>=1.4",
     "openai>=1.30",
-    "click>=8.1",
     "pydantic>=2.0",
     "python-dotenv>=1.0"
-]
-
-[project.optional-dependencies]
-dev = [
-    "pytest>=8.0",
-    "ruff>=0.4",
 ]
 
 [dependency-groups]
 dev = [
     "pytest>=9.1.1",
+    "ruff>=0.4",
 ]
 
 [tool.pytest.ini_options]

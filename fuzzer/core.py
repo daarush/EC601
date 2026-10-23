@@ -55,6 +55,7 @@ def _join_server_log(client, target, records):
     for rec in records:
         s = server.get(rec["cid"], {})
         rec["depth"], rec["sink_reached"] = s.get("depth", 0), s.get("sink_reached", False)
+        rec["outcome"] = s.get("outcome")        # server-side outcome label (ground truth; never shown to strategies)
         rec["new_depth"] = best is not None and rec["depth"] > best
         best = rec["depth"] if best is None else max(best, rec["depth"])
         rec["interesting"] = rec["client_interesting"] or rec["new_depth"]
@@ -64,11 +65,21 @@ def summarize(records):
     return {"requests": len(records), "first_interesting": hits[0] if hits else None,
             "interesting_total": len(hits), "max_depth": max((r["depth"] for r in records), default=0),
             "sink_hits": sum(r["sink_reached"] for r in records),
+            "distinct_outcomes": len({r.get("outcome") for r in records} - {None}),
             "status_counts": dict(Counter(r["status"] for r in records))}
 
-def save(records, target_name, strat_name, seed, budget) -> Path:
-    Path("results").mkdir(exist_ok=True)
-    p = Path(f"results/run_{target_name}_{strat_name}_s{seed}_b{budget}.json")
-    p.write_text(json.dumps({"meta": dict(target=target_name, strategy=strat_name, seed=seed,
-                 budget=budget), "summary": summarize(records), "records": records}, indent=1))
+def save(records, target_name, strat_name, seed, budget, wordlist=None, out_dir="results") -> Path:
+    """Write one run to <out_dir>/run_<target>_<strategy>[_<wordlist>]_s<seed>_b<budget>.json.
+
+    The wordlist (when given) is recorded in meta AND the filename so runs that differ only
+    by wordlist can never overwrite each other.
+    """
+    out = Path(out_dir)
+    out.mkdir(parents=True, exist_ok=True)
+    wl = f"_{wordlist}" if wordlist else ""
+    p = out / f"run_{target_name}_{strat_name}{wl}_s{seed}_b{budget}.json"
+    meta = dict(target=target_name, strategy=strat_name, seed=seed, budget=budget)
+    if wordlist:
+        meta["wordlist"] = wordlist
+    p.write_text(json.dumps({"meta": meta, "summary": summarize(records), "records": records}, indent=1))
     return p
