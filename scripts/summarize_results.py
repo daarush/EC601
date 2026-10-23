@@ -1,11 +1,13 @@
-"""summarize_results.py - regenerate the Sprint 1 results tables from results/*.json.
+"""summarize_results.py - regenerate the Sprint 1 results tables from run JSON files.
 
 Usage (from repo root):
-    uv run python scripts/summarize_results.py results
+    uv run python scripts/summarize_results.py results/matrix      # the clean baseline matrix
+    uv run python scripts/summarize_results.py results             # the original Sprint 1 runs
 
 Reads only the raw per-request records, so every number is recomputable.
-Wordlist is not stored in run meta (yet), so budget==1000 is treated as the
-informed.txt control (see SPRINT1.md, Section 8, fix (b)).
+Older runs did not store the wordlist in their meta; for those, budget==1000 is treated as the
+informed.txt control and anything else as mini.txt. New runs record the wordlist explicitly.
+The outcome-coverage table needs runs made after outcome logging was added.
 """
 import collections
 import glob
@@ -107,16 +109,49 @@ def main():
         print(f"| {w} | {b} | {c['quote/syntax (OperationalError)']} | {c['null-byte (ProgrammingError)']} | "
               f"{sum(c.values())} | {len(c)} |")
 
-    print("\n## Site A informed run: how the 12 sink hits were produced\n")
+    print("\n## Site A: which queries reached the sink (pooled over seeds)\n")
     for (t, w, b), g in sorted(groups.items()):
-        if t == "flask_app" and b == 1000:
-            hits = [r for _, _, R in g for r in R if r["sink_reached"]]
-            c = collections.Counter(r["payload"].get("query") for r in hits)
-            print("| `query` sent | Count |")
-            print("|---|---|")
-            for q, n in c.most_common():
-                print(f"| `{q}` | {n} |")
-            print(f"\nTotal sink hits: {len(hits)}")
+        if t != "flask_app":
+            continue
+        hits = [r for _, _, R in g for r in R if r["sink_reached"]]
+        print(f"**{w}, budget {b}: {len(hits)} sink hit(s) in {sum(len(R) for _, _, R in g)} requests**\n")
+        if not hits:
+            print("(none)\n")
+            continue
+        c = collections.Counter(r["payload"].get("query") for r in hits)
+        print("| `query` sent | Count |")
+        print("|---|---|")
+        for q, n in c.most_common(8):
+            print(f"| `{q}` | {n} |")
+        if len(c) > 8:
+            print(f"| ... {len(c) - 8} other distinct queries | {sum(n for _, n in c.most_common()[8:])} |")
+        print()
+
+    print("## Outcome coverage (primary metric): distinct server-side outcomes reached\n")
+    print("Per run: distinct outcomes after the full budget, and the area under the discovery curve")
+    print("(mean over requests of the cumulative distinct-outcome count).\n")
+    print("| Target | Wordlist | Budget | Distinct per seed | Mean distinct | Mean AUC | Outcomes never reached (of those seen on this target) |")
+    print("|---|---|---|---|---|---|---|")
+    by_target = collections.defaultdict(set)
+    for (t, w, b), g in groups.items():
+        for _, _, R in g:
+            by_target[t].update(r.get("outcome") for r in R if r.get("outcome"))
+    for (t, w, b), g in sorted(groups.items()):
+        per, aucs, seen_all = [], [], set()
+        for m, s, R in sorted(g, key=lambda x: x[0]["seed"]):
+            if not any(r.get("outcome") for r in R):
+                continue
+            seen, curve = set(), []
+            for r in R:
+                if r.get("outcome"):
+                    seen.add(r["outcome"])
+                curve.append(len(seen))
+            per.append(len(seen)); aucs.append(sum(curve) / len(curve)); seen_all |= seen
+        if not per:
+            print(f"| {t} | {w} | {b} | (no outcome data; run predates outcome logging) | | | |")
+            continue
+        missing = sorted(by_target[t] - seen_all)
+        print(f"| {t} | {w} | {b} | {per} | {sum(per)/len(per):.1f} | {sum(aucs)/len(aucs):.2f} | {', '.join(missing) or '-'} |")
 
 
 if __name__ == "__main__":
