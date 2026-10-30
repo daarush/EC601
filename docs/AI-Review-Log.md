@@ -56,3 +56,38 @@ Qwen answered as a free-form strengths/weaknesses "deep dive" rather than in the
 - *Stateful validators and session handling:* out of scope for this semester's question.
 - *Triage-quality user study:* deferred unless the pivot triggers.
 - *SecLists contamination test:* noted as a limitation; the no-feedback LLM control partly addresses it.
+
+---
+
+# AI Review Log (Sprint 2 implementation) - DRAFT, edit in your own words
+
+**Tool used:** Claude (Sonnet 5.5) in the claude.ai chat, with read/write access to this repo through a file tool.
+Code was run and tested in a sandbox copy first, then written to the repo and re-run on the student's machine.
+
+**What the AI produced:** `fuzzer/ml_strategy.py`, `fuzzer/features.py`, `fuzzer/bandit_strategy.py`,
+`fuzzer/llm_strategy.py`, their tests, `scripts/run_matrix.py` (strategy matrix), `scripts/compare_strategies.py`,
+`docs/SPRINT2.md`, `docs/CONCLUSIONS.md`.
+
+**How it was checked:** unit tests (96 passing at the time of the 30-seed run, plus 5 added afterwards for the
+comparison script); fairness tests (ML sends the same payloads as the baseline until its first fit; server-side ground
+truth cannot influence any strategy); a toy-oracle test that each learner really learns; and a full experiment of
+360 runs (30 seeds x 4 cells x 3 strategies) executed on the student's machine. Per-run data: `results/summary.csv`.
+
+**Mistakes the AI made that were caught, and what changed:**
+1. The original ML reward used status codes and `new_depth` (never available during a run), so on Site A every label
+   was identical and the model could not learn. Replaced by a response-rarity reward. This closes Step 3, item 2 above.
+2. The first bandit used the same `1/count` reward and barely beat the baseline in a toy test. Switched to a binary
+   "new or rarer than average" reward, which then passed.
+3. An early 30-seed run in the AI's sandbox (seeds 1-30) suggested the bandit helped on Site A `informed` (p=0.025).
+   It did not replicate on seeds 42-71 (p=0.84), so the claim was retracted. Lesson: do not trust one seed set.
+4. The AI first compared final outcome counts, not the pre-registered AUC metric; corrected before concluding.
+5. Several docstrings claimed things the code did not do (e.g. that both ML variants share one reward); fixed.
+
+**Result:** no evidence that either ML variant helps on the pre-registered primary metric (outcome-coverage AUC);
+clear gains on payload correctness and yield. See `docs/SPRINT2.md` and `docs/CONCLUSIONS.md`.
+
+**Open items (honest deviations):**
+- The third target (Section 8) was not built before the AI variants ran; it is planned for Sprint 3.
+- The LLM variant is tested offline only; no real API run yet. The client uses the Anthropic API although the plan
+  lists OpenAI; reconcile one or the other.
+- Qwen's response to the Sprint 1 cross-review is still TODO (see Step 2).

@@ -68,7 +68,7 @@ def summarize(records):
             "distinct_outcomes": len({r.get("outcome") for r in records} - {None}),
             "status_counts": dict(Counter(r["status"] for r in records))}
 
-def save(records, target_name, strat_name, seed, budget, wordlist=None, out_dir="results") -> Path:
+def save(records, target_name, strat_name, seed, budget, wordlist=None, out_dir="results", params=None) -> Path:
     """Write one run to <out_dir>/run_<target>_<strategy>[_<wordlist>]_s<seed>_b<budget>.json.
 
     The wordlist (when given) is recorded in meta AND the filename so runs that differ only
@@ -81,5 +81,7 @@ def save(records, target_name, strat_name, seed, budget, wordlist=None, out_dir=
     meta = dict(target=target_name, strategy=strat_name, seed=seed, budget=budget)
     if wordlist:
         meta["wordlist"] = wordlist
+    if params:                      # strategy hyperparameters (ML), so a run can be reproduced exactly
+        meta["params"] = params
     p.write_text(json.dumps({"meta": meta, "summary": summarize(records), "records": records}, indent=1))
     return p

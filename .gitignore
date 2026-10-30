@@ -23,3 +23,5 @@ build/
 
 # Runtime output (target server logs). results/ IS committed on purpose.
 server_log*.json*
+
+results/matrix/
