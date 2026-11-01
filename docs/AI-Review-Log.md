@@ -59,7 +59,7 @@ Qwen answered as a free-form strengths/weaknesses "deep dive" rather than in the
 
 ---
 
-# AI Review Log (Sprint 2 implementation) - DRAFT, edit in your own words
+# AI Review Log (Sprint 2 implementation)
 
 **Tool used:** Claude (Sonnet 5.5) in the claude.ai chat, with read/write access to this repo through a file tool.
 Code was run and tested in a sandbox copy first, then written to the repo and re-run on the student's machine.
@@ -82,12 +82,23 @@ truth cannot influence any strategy); a toy-oracle test that each learner really
    It did not replicate on seeds 42-71 (p=0.84), so the claim was retracted. Lesson: do not trust one seed set.
 4. The AI first compared final outcome counts, not the pre-registered AUC metric; corrected before concluding.
 5. Several docstrings claimed things the code did not do (e.g. that both ML variants share one reward); fixed.
+6. Site C: the AI rebuilt `mini.txt` from memory in its sandbox, so the first freeze hash would not have matched the real
+   file (Windows line endings, no final newline). Caught by re-reading the real file before committing; re-frozen from
+   the real bytes. The calibration stood because the tokens were identical.
+7. Site C: the AI's pre-registered prediction that the bandit would give a modest gain (A12 0.55-0.65) was wrong
+   (A12 0.43 / 0.47, no effect). Recorded as wrong in `docs/SITE_C.md`, not edited.
+8. Site C: the SQL error text initially lacked the `sqlite3.` module prefix that Site B's errors have; found by a test
+   and fixed in the server (before the freeze), not in the test.
+9. A post-hoc pooled analysis (ML possibly slower to first interesting response, p=0.050) was run after seeing the data;
+   it is labelled exploratory/hypothesis-only everywhere it appears.
 
 **Result:** no evidence that either ML variant helps on the pre-registered primary metric (outcome-coverage AUC);
 clear gains on payload correctness and yield. See `docs/SPRINT2.md` and `docs/CONCLUSIONS.md`.
 
 **Open items (honest deviations):**
-- The third target (Section 8) was not built before the AI variants ran; it is planned for Sprint 3.
+- The third target (Section 8) was built late: Sites A and B were evaluated first. Site C was calibrated on the baseline
+  only, frozen (hash-checked by `tests/test_site_c_frozen.py`) and run with written predictions. Result: it confirmed the null.
+- Windows port exhaustion (WinError 10048) interrupted the Site C bandit runs; the runner now retries and has `--resume`.
 - The LLM variant is tested offline only; no real API run yet. The client uses the Anthropic API although the plan
   lists OpenAI; reconcile one or the other.
 - Qwen's response to the Sprint 1 cross-review is still TODO (see Step 2).

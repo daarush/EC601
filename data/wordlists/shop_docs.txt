@@ -1,0 +1,24 @@
+'
+"
+' OR '1'='1
+<script>alert(1)</script>
+../
+%00
+${7*7}
+admin
+root
+@
+.com
+:
+--
+;
+GB
+DE
+express
+standard
+SAVE10
+VIP20
+10
+99
+SW1A 1AA
+10115

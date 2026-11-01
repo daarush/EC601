@@ -1,74 +1,109 @@
 # Conclusions (running summary across sprints)
 
-Plain-language results. Details and statistics: `docs/SPRINT1.md`, `docs/SPRINT2.md`, `results/compare.txt`.
+Plain-language results. Details and statistics: `docs/SPRINT1.md`, `docs/SPRINT2.md`, `docs/SITE_C.md`, `results/compare.txt`.
 All numbers below come from `results/summary.csv` (30 runs per cell, 1,000 requests per run, seeds 42-71).
 
-**The two fuzzers being compared**
+**The fuzzers being compared**
 - **Sprint 1: base fuzzer** - random mutations plus a wordlist. No learning. (The baseline code is unchanged, so
   re-running it over 30 seeds is the same fuzzer as Sprint 1.)
 - **Sprint 2: ML variants** - same mutations, but they *learn during the run* what works.
   `ml` = a gradient-boosting model picks the most promising payload. `bandit` = learns which mutation types pay off.
-- **Sprint 3: LLM variant** - TODO.
+- **Sprint 3: LLM variant** - built and tested offline, **not run yet** (see the last section).
+
+**The three targets**
+- **Site A** - a hidden server error behind a chain of input checks (capped by the fuzzer's own mutations).
+- **Site B** - a real SQL injection in a two-parameter search (found by the base fuzzer in about 65 requests).
+- **Site C** - a checkout API with a deep validation chain, three planted bugs and one unreachable "tripwire" bug.
+  Built to leave room for a better fuzzer to win, and frozen before any ML run (`docs/SITE_C.md`).
 
 ---
 
-## The one-paragraph answer
+## The short answer
 
-Over 120 runs per fuzzer, the base fuzzer caused **445** bug-triggering server errors, the ML model caused
-**4,289**, and the bandit caused **613**. Almost all of that difference is the ML model hitting the *same* known
-bug on Site B over and over. On the question that matters more, *finding things the base fuzzer cannot*, the gain is
-small: Site A's hidden server error was triggered by the base fuzzer in **0 of 90** runs, by the ML model in
-**5 of 90**, and by the bandit in **1 of 90**. None of the variants discovered more *kinds* of server behaviour than
-the base fuzzer.
+**The ML variants reach the vulnerable code more often, but they do not find more kinds of problems, and they do not
+find them sooner.** This held on all three targets, including Site C, which was designed so a better fuzzer *could* win.
+
+- **On the question we pre-registered** (does a variant find more kinds of server behaviour, earlier?): the answer is
+  **"no evidence" in every one of the 12 comparisons (8 on Sites A and B, 4 on Site C).**
+- **On how often they hit vulnerable code:** the ML model is clearly better (Site C: 9,632 requests reached the
+  database insert vs 6,313 for the base fuzzer; Site A `informed`: 86 vs 10 per run; Site B: 714 vs 491 per run).
+- **On finding things the base fuzzer cannot:** one small, borderline signal (Site A's hidden error: ML 5 of 30 runs vs
+  0 of 30 for the base fuzzer, p = 0.052). The bugs on Site C that need a specific token (`SAVE`, or `express` with
+  quantity 10) were **not** found by either ML variant (1 run of 60 for ML, 0 for the bandit, 0 for the base fuzzer).
 
 ---
 
-## Site B: a real SQL injection (30 runs x 1,000 requests)
+![Reach vs coverage](figures/fig5_sprint2_reach_vs_coverage.png)  
+
+
+![Planted bugs triggered](figures/fig7_sprint2_bugs_triggered.png)
+
+(Figures are written to `docs/figures/` by `scripts/make_figures_sprint2.py`.)
+
+---
+
+## Site C: the harder target (30 runs x 2 wordlists = 60 runs per fuzzer)
 
 | | Base fuzzer (Sprint 1) | ML model (Sprint 2) | Bandit (Sprint 2) |
 |---|---|---|---|
-| Runs that found the SQL injection | **30 / 30** | **30 / 30** | **30 / 30** |
+| Tripwire bug triggered (must be 0) | 0 / 60 | 0 / 60 | 0 / 60 |
+| Runs that triggered the SQL injection | 50 / 60 | 48 / 60 | 48 / 60 |
+| Runs that triggered the coupon-parser crash (needs the token `SAVE`) | 0 / 60 | 0 / 60 | 0 / 60 |
+| Runs that triggered the express zero-division (needs `express` + quantity 10) | 0 / 60 | 1 / 60 | 0 / 60 |
+| Requests that reached the database (of 60,000) | 6,313 | **9,632** | 6,507 |
+| Kinds of server behaviour found (avg per run, of 16 reachable) | 11.6 | 11.6 | 11.6 |
+| Pre-registered test (does it find more kinds, earlier?) | - | **no evidence** | **no evidence** |
+
+Plain reading: the ML model sends about 50% more requests that reach the database, but all three fuzzers find the
+same 11-12 kinds of behaviour, and none of them gets past the two bugs that need a specific token. Before running,
+we predicted the bandit would help a little; it did not (we were wrong).
+
+## Site B: a real SQL injection (30 runs)
+
+| | Base fuzzer | ML model | Bandit |
+|---|---|---|---|
+| Runs that found the SQL injection | 30 / 30 | 30 / 30 | 30 / 30 |
 | Total requests that triggered it (HTTP 500) | 445 | **4,280** | 612 |
 | Total requests that reached the database code | 14,726 | **21,425** | **21,508** |
 | Kinds of server behaviour found (avg per run) | 4 | 4 | 4 |
 
-Plain reading: everyone finds this bug every time. The ML variants just reach the vulnerable code more often
-(about 49% of requests for the base fuzzer vs 71-72% for ML and bandit), and the ML model triggers the error about
-10x as often. It is the same bug repeated, not 10x more bugs.
+Everyone finds this bug every time. The ML model just triggers the *same* bug about 10x as often.
 
-## Site A: a hidden server error behind a chain of input checks (90 runs: 3 wordlists x 30)
+## Site A: a hidden server error behind input checks (90 runs: 3 wordlists x 30)
 
-| | Base fuzzer (Sprint 1) | ML model (Sprint 2) | Bandit (Sprint 2) |
+| | Base fuzzer | ML model | Bandit |
 |---|---|---|---|
 | Runs that triggered the hidden server error (HTTP 500) | **0 / 90** | **5 / 90** | **1 / 90** |
 | Total requests that reached the vulnerable code | 313 | **2,617** | 382 |
-| Runs that reached the vulnerable code at least once | 40 / 90 | 37 / 90 | 48 / 90 |
 | Kinds of server behaviour found (avg per run) | 6.4 | 6.4 | 6.5 |
 
 All five ML successes (and the bandit's one) were on the `informed` wordlist (the one that already contains the
-`SEARCH:` token). With `mini` (no hints) nobody got past the first checks, and with `mini_token` nobody triggered
-the error. The ML model's 5/30 is borderline (p = 0.052), so treat it as promising, not proven.
+`SEARCH:` token). With no hints, nobody got past the first checks.
 
 ---
 
-## Sprint 1 -> Sprint 2 in four sentences
+## Sprint 1 -> Sprint 2 in five sentences
 
-1. **Same bugs found.** Every bug the base fuzzer found, the ML variants also found. Nothing was lost.
-2. **Far more hits on the bugs it already finds.** ML turns 445 error-triggering requests into 4,289 (about 10x),
-   and 15,039 vulnerable-code requests into 24,042.
-3. **A small gain on the hidden bug.** The base fuzzer never triggered Site A's error; the ML model did in 5 of 30
-   `informed` runs.
-4. **No gain in variety or speed.** Same number of kinds of server behaviour, and the pre-registered primary test
-   (outcome coverage over time) found **no evidence** that either variant helps, in any cell.
+1. **Same bugs found.** Every bug the base fuzzer found, the ML variants also found.
+2. **Far more hits on the bugs it already finds** (Site B: 445 -> 4,280 error-triggering requests; Site C: 6,313 -> 9,632
+   requests reaching the database).
+3. **A small, borderline gain on one hidden bug** (Site A: 0 of 30 -> 5 of 30 `informed` runs, p = 0.052).
+4. **No gain in variety or speed**, on any of the three targets, under the pre-registered test.
+5. **The bugs that need a specific token stay out of reach** for learners that only reshuffle the fuzzer's own tokens.
 
 ## What we can and cannot claim
 
-- **Can claim:** the learned variants send more *valid, bug-reaching* requests, and the ML model occasionally gets
-  past a check the base fuzzer never does.
-- **Cannot claim:** that they find *more kinds* of bugs or find them *faster*. The data shows no such effect.
-- **Why the null result may be partly a test problem:** Site A with no hints is impossible for any variant that only
-  reshuffles a fixed mutator and wordlist, and Site B's bug is found within about 65 requests even by the base fuzzer.
-  Both targets leave little room to show a difference. A harder third target is planned for Sprint 3.
+- **Can claim:** the learned variants send more *valid, bug-reaching* requests, and the ML model occasionally gets past a
+  check the base fuzzer never does.
+- **Cannot claim:** that they find *more kinds* of bugs or find them *faster*. Three targets, including one built to
+  reward a better fuzzer, show no such effect.
+- **The earlier worry is now answered.** After Sites A and B we said the null might be a test problem (no room to win).
+  Site C had room (the base fuzzer found only ~70% of what was reachable) and the result did not change, so the null is
+  stronger, not weaker.
+- **Open hypothesis, not a finding:** pooling all cells, the ML model may be slightly *slower* to a first interesting
+  response (exploratory, p = 0.050, not pre-registered). Worth a deliberate test in Sprint 3.
+- **Caveat on Site C:** it is synthetic and its token-gated bugs favour a fuzzer that can read error messages. That
+  is a design choice, stated in `docs/SITE_C.md`.
 
 ---
 
@@ -78,8 +113,13 @@ the error. The ML model's 5/30 is borderline (p = 0.052), so treat it as promisi
 |---|---|---|---|---|
 | Site A: runs that triggered the hidden error | 0 / 90 | 5 / 90 | 1 / 90 | _tbd_ |
 | Site B: requests that triggered the SQL error | 445 | 4,280 | 612 | _tbd_ |
+| Site C: runs that triggered `coupon_parser_crash` | 0 / 60 | 0 / 60 | 0 / 60 | _tbd_ |
+| Site C: runs that triggered `express_zero_division` | 0 / 60 | 1 / 60 | 0 / 60 | _tbd_ |
+| Site C tripwire (must stay 0) | 0 / 60 | 0 / 60 | 0 / 60 | _tbd_ |
 | Cost per run (API tokens) | none | none | none | _tbd_ |
 
-Rerun with: `uv run python scripts/run_matrix.py --strategies baseline ml bandit llm --seeds $(seq 42 71)`
-(the LLM needs `ANTHROPIC_API_KEY` and costs money; start with the small pilot in `docs/SPRINT2.md`, section 6).
-Then `uv run python scripts/compare_strategies.py --csv results/summary.csv > results/compare.txt`.
+The Site C row pair is the real test of the LLM: it can read "example: SAVE10" and "'standard' or 'express'" in the
+error messages, which no learner here can use. Rerun with:
+`uv run python scripts/run_matrix.py --strategies baseline ml bandit llm --seeds $(seq 42 71)`
+(the LLM needs `ANTHROPIC_API_KEY` and costs money; run a 100-request pilot first), then
+`uv run python scripts/compare_strategies.py --csv results/summary.csv > results/compare.txt`.

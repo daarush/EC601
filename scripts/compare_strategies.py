@@ -42,6 +42,10 @@ except ImportError:                      # scipy optional: p-values are skipped 
 SUMMARY_METRICS = ["distinct_outcomes", "first_interesting", "sink_hits", "interesting_total"]
 METRICS = ["outcome_auc"] + SUMMARY_METRICS
 COMPARED = ["ml", "bandit", "llm"]
+# Planted bugs with known server-side outcome labels (ground truth), per target. Site C's last entry is a TRIPWIRE:
+# it needs a secret HMAC, so no black-box strategy may ever trigger it; if one does, something is leaking.
+BUG_OUTCOMES = {"shop": ["sqli_error", "coupon_parser_crash", "express_zero_division", "premium_crash"]}
+TRIPWIRE = "premium_crash"
 
 
 def a12(x, y):
@@ -94,10 +98,12 @@ def load(out_dir):
         d = json.loads(p.read_text())
         m, s = d["meta"], d["summary"]
         auc = outcome_auc(d.get("records", []), m["budget"])
+        outs = {r.get("outcome") for r in d.get("records", []) if r.get("outcome")}
+        bugs = sorted(outs & set(BUG_OUTCOMES.get(m["target"], [])))
         rows.append(dict(target=m["target"], wordlist=m.get("wordlist", "-"), strategy=m["strategy"],
                          seed=m["seed"], budget=m["budget"], outcome_auc=None if auc is None else round(auc, 3),
                          **{k: s[k] for k in SUMMARY_METRICS}, bug_500s=n_500(s),
-                         sink_rate=round(s["sink_hits"] / m["budget"], 4)))
+                         sink_rate=round(s["sink_hits"] / m["budget"], 4), bugs_found=";".join(bugs)))
         store = cells[(m["target"], m.get("wordlist", "-"))][m["strategy"]]
         for k in SUMMARY_METRICS:
             v = s[k]
@@ -107,6 +113,7 @@ def load(out_dir):
         if auc is not None:
             store["outcome_auc"].append(auc)
         store["bug_found"].append(int(n_500(s) > 0))
+        store["bug_sets"].append(bugs)
         if m["strategy"] == "llm":
             llm_usage[m["target"]].append(m.get("params", {}).get("usage", {}))
     # The LLM is wordlist-independent: compare it against every wordlist cell of its target.
@@ -154,6 +161,25 @@ def decision(cells):
     print()
 
 
+def bug_table(cells):
+    """Simple 'caught X vs Y' view: in how many runs did each strategy trigger each planted bug?"""
+    for cell, strategies in sorted(cells.items()):
+        bugs = BUG_OUTCOMES.get(cell[0])
+        if not bugs or "baseline" not in strategies:
+            continue
+        names = ["baseline"] + [n for n in COMPARED if n in strategies]
+        print(f"PLANTED BUGS TRIGGERED ({cell[0]}/{cell[1]}): runs that triggered each bug")
+        print(f"  {'bug':24}" + "".join(f"{n:>14}" for n in names))
+        for bug in bugs:
+            counts = [(sum(bug in s for s in strategies[n]["bug_sets"]), len(strategies[n]["bug_sets"])) for n in names]
+            tag = "   <- TRIPWIRE (must be 0)" if bug == TRIPWIRE else ""
+            print(f"  {bug:24}" + "".join(f"{f'{c}/{n}':>14}" for c, n in counts) + tag)
+            if bug == TRIPWIRE and any(c for c, _ in counts):
+                print("  !! TRIPWIRE TRIGGERED: a strategy reached the bug that needs the secret. Investigate before "
+                      "trusting ANY result on this target.")
+        print()
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("out_dir", nargs="?", default="results/matrix")
@@ -185,6 +211,7 @@ def main():
                 row(cell, k, name, b, m)
         print()
     decision(cells)
+    bug_table(cells)
     if llm_usage:
         print("LLM cost per run (mean over seeds):")
         for target, us in sorted(llm_usage.items()):

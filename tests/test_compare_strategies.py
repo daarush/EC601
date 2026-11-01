@@ -40,3 +40,39 @@ def test_n_500_accepts_int_and_json_string_keys():
     assert cs.n_500({"status_counts": {500: 3}}) == 3
     assert cs.n_500({"status_counts": {"500": 2, "400": 9}}) == 2
     assert cs.n_500({}) == 0
+
+
+def _write_run(d, strategy, seed, outcomes, target="shop", wordlist="mini"):
+    import json
+    recs = [{"i": i, "outcome": o} for i, o in enumerate(outcomes)]
+    summ = dict(distinct_outcomes=len(set(outcomes)), first_interesting=None, sink_hits=0, interesting_total=0,
+                status_counts={"400": len(outcomes)})
+    meta = dict(target=target, strategy=strategy, seed=seed, budget=len(outcomes), wordlist=wordlist)
+    (d / f"run_{target}_{strategy}_{wordlist}_s{seed}.json").write_text(json.dumps({"meta": meta, "summary": summ, "records": recs}))
+
+
+def test_planted_bugs_are_extracted_per_run(tmp_path):
+    _write_run(tmp_path, "baseline", 1, ["order_ok", "sqli_error"])
+    _write_run(tmp_path, "ml", 1, ["order_ok", "coupon_parser_crash", "sqli_error", "bad_email"])
+    cells, _, rows = cs.load(tmp_path)
+    store = cells[("shop", "mini")]
+    assert store["baseline"]["bug_sets"] == [["sqli_error"]]
+    assert store["ml"]["bug_sets"] == [["coupon_parser_crash", "sqli_error"]]
+    assert {r["strategy"]: r["bugs_found"] for r in rows} == {"baseline": "sqli_error", "ml": "coupon_parser_crash;sqli_error"}
+
+
+def test_bug_table_prints_counts_and_flags_a_tripped_tripwire(tmp_path, capsys):
+    _write_run(tmp_path, "baseline", 1, ["order_ok"])
+    _write_run(tmp_path, "ml", 1, ["order_ok", "premium_crash"])
+    cells, _, _ = cs.load(tmp_path)
+    cs.bug_table(cells)
+    out = capsys.readouterr().out
+    assert "PLANTED BUGS TRIGGERED (shop/mini)" in out and "TRIPWIRE TRIGGERED" in out
+
+
+def test_bug_table_is_quiet_for_targets_without_planted_bug_labels(tmp_path, capsys):
+    _write_run(tmp_path, "baseline", 1, ["a"], target="flask_app")
+    _write_run(tmp_path, "ml", 1, ["a"], target="flask_app")
+    cells, _, rows = cs.load(tmp_path)
+    cs.bug_table(cells)
+    assert capsys.readouterr().out == "" and rows[0]["bugs_found"] == ""

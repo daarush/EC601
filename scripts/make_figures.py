@@ -29,6 +29,9 @@ runs = collections.defaultdict(list)          # (target, wordlist) -> [(seed, su
 for f in sorted(glob.glob(str(RES / "run_*.json"))):
     d = json.load(open(f, encoding="utf-8")); m = d["meta"]
     if m["budget"] != BUDGET or not m.get("wordlist"): continue
+    # Sprint 1 figures = baseline only, the original 5 seeds. results/matrix now also holds ML/bandit/Site C runs and
+    # more seeds (see scripts/make_figures_sprint2.py for those); without this filter they would be silently mixed in.
+    if m.get("strategy", "baseline") != "baseline" or m["target"] not in ("flask_app", "vuln_site") or not 42 <= m["seed"] <= 46: continue
     runs[(m["target"], m["wordlist"])].append((m["seed"], d["summary"], d["records"]))
 if not runs: sys.exit(f"No budget-{BUDGET} runs with a wordlist found in {RES}. Run scripts/run_matrix.py first.")
 A = {w: runs[("flask_app", w)] for w in ("mini", "mini_token", "informed")}

@@ -1,4 +1,4 @@
-wrote 360 rows to results/summary.csv
+wrote 540 rows to results/summary.csv
 
 cell                    vs      metric                  base med [mean]   strat med [mean]    A12        p  n
 flask_app/informed      ml      outcome_auc               6.7 [   6.68]      6.7 [   6.70]   0.50   1.0000  30v30
@@ -34,6 +34,28 @@ flask_app/mini_token    bandit  first_interesting      1001.0 [ 795.60]    752.0
 flask_app/mini_token    bandit  sink_hits                 0.0 [   0.43]      1.0 [   0.87]   0.64   0.0386  30v30
 flask_app/mini_token    bandit  interesting_total         0.0 [   0.33]      1.0 [   0.60]   0.63   0.0409  30v30
 
+shop/mini               ml      outcome_auc              10.9 [  10.98]     10.8 [  10.88]   0.43   0.3711  30v30
+shop/mini               ml      distinct_outcomes        12.0 [  11.60]     12.0 [  11.53]   0.47   0.6316  30v30
+shop/mini               ml      first_interesting       196.0 [ 374.93]    221.5 [ 357.80]   0.50   0.9764  30v30
+shop/mini               ml      sink_hits               106.0 [ 104.47]    176.5 [ 177.00]   0.84   0.0000  30v30
+shop/mini               ml      interesting_total         3.0 [   3.07]     23.0 [  19.60]   0.85   0.0000  30v30
+shop/mini               bandit  outcome_auc              10.9 [  10.98]     10.8 [  10.83]   0.43   0.3790  30v30
+shop/mini               bandit  distinct_outcomes        12.0 [  11.60]     12.0 [  11.53]   0.47   0.6316  30v30
+shop/mini               bandit  first_interesting       196.0 [ 374.93]    528.5 [ 475.33]   0.57   0.3544  30v30
+shop/mini               bandit  sink_hits               106.0 [ 104.47]    107.5 [ 109.50]   0.61   0.1553  30v30
+shop/mini               bandit  interesting_total         3.0 [   3.07]      2.0 [   2.43]   0.41   0.2436  30v30
+
+shop/shop_docs          ml      outcome_auc              11.0 [  11.01]     10.8 [  10.93]   0.43   0.3912  30v30
+shop/shop_docs          ml      distinct_outcomes        12.0 [  11.67]     12.0 [  11.70]   0.48   0.8141  30v30
+shop/shop_docs          ml      first_interesting       290.0 [ 398.53]    418.5 [ 501.27]   0.59   0.2339  30v30
+shop/shop_docs          ml      sink_hits               106.0 [ 105.97]    140.0 [ 144.07]   0.77   0.0004  30v30
+shop/shop_docs          ml      interesting_total         2.0 [   2.27]     10.5 [  10.53]   0.72   0.0030  30v30
+shop/shop_docs          bandit  outcome_auc              11.0 [  11.01]     10.9 [  10.96]   0.47   0.7172  30v30
+shop/shop_docs          bandit  distinct_outcomes        12.0 [  11.67]     12.0 [  11.67]   0.49   0.9259  30v30
+shop/shop_docs          bandit  first_interesting       290.0 [ 398.53]    331.0 [ 437.10]   0.54   0.5879  30v30
+shop/shop_docs          bandit  sink_hits               106.0 [ 105.97]    106.5 [ 107.40]   0.53   0.6571  30v30
+shop/shop_docs          bandit  interesting_total         2.0 [   2.27]      2.0 [   2.20]   0.43   0.3579  30v30
+
 vuln_site/mini          ml      outcome_auc               3.9 [   3.90]      3.9 [   3.86]   0.43   0.3750  30v30
 vuln_site/mini          ml      distinct_outcomes         4.0 [   4.00]      4.0 [   4.00]   0.50   1.0000  30v30
 vuln_site/mini          ml      first_interesting        64.0 [  79.00]     91.5 [ 124.67]   0.59   0.2169  30v30
@@ -53,6 +75,24 @@ flask_app/mini          ml        0.43   0.3750  no evidence                    
 flask_app/mini          bandit    0.56   0.4508  no evidence                                    0/30 vs 0/30  1.0000
 flask_app/mini_token    ml        0.44   0.4464  no evidence                                    0/30 vs 0/30  1.0000
 flask_app/mini_token    bandit    0.61   0.1624  no evidence                                    0/30 vs 0/30  1.0000
+shop/mini               ml        0.43   0.3711  no evidence                                  26/30 vs 26/30  1.0000
+shop/mini               bandit    0.43   0.3790  no evidence                                  26/30 vs 24/30  0.7306
+shop/shop_docs          ml        0.43   0.3912  no evidence                                  24/30 vs 22/30  0.7611
+shop/shop_docs          bandit    0.47   0.7172  no evidence                                  24/30 vs 24/30  1.0000
 vuln_site/mini          ml        0.43   0.3750  no evidence                                  30/30 vs 30/30  1.0000
 vuln_site/mini          bandit    0.60   0.1833  no evidence                                  30/30 vs 30/30  1.0000
+
+PLANTED BUGS TRIGGERED (shop/mini): runs that triggered each bug
+  bug                           baseline            ml        bandit
+  sqli_error                       26/30         26/30         24/30
+  coupon_parser_crash               0/30          0/30          0/30
+  express_zero_division             0/30          0/30          0/30
+  premium_crash                     0/30          0/30          0/30   <- TRIPWIRE (must be 0)
+
+PLANTED BUGS TRIGGERED (shop/shop_docs): runs that triggered each bug
+  bug                           baseline            ml        bandit
+  sqli_error                       24/30         22/30         24/30
+  coupon_parser_crash               0/30          0/30          0/30
+  express_zero_division             0/30          1/30          0/30
+  premium_crash                     0/30          0/30          0/30   <- TRIPWIRE (must be 0)
 

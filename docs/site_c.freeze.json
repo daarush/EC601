@@ -1,0 +1,85 @@
+{
+  "files": {
+    "targets/shop_site/app.py": "b15cd8d53cf33ef7e5dd00e5a12aa7873491e41a694161bea05860e9c413eb5e",
+    "data/wordlists/mini.txt": "c96e0464a1be1086cf2ba60bbd0996d37335720cc31617e013768187d1c79cef",
+    "data/wordlists/shop_docs.txt": "18a6d57cb7a6a1a77851997802c9c90337c6c63c15ee5709e895ba73049a5d3b"
+  },
+  "target_entry": "fc45324f76a5501f47fd24ec68087eb380ced0d5d35eacede84dc660502d6eb9",
+  "frozen_on": "2026-10-30",
+  "frozen_before": "any ML / bandit / LLM run on Site C (only the baseline had touched it)",
+  "calibration": {
+    "what": "baseline only, seeds 1-10, 1000 requests",
+    "reachable_outcomes_total": 16,
+    "mini": {
+      "mean_found": 11.2,
+      "min": 11,
+      "max": 12,
+      "runs_finding_each_of_10": {
+        "missing_fields": 10,
+        "bad_type": 10,
+        "bad_email": 10,
+        "bad_country": 10,
+        "bad_postal": 10,
+        "bad_quantity": 10,
+        "bad_shipping": 10,
+        "bad_coupon": 10,
+        "unknown_coupon": 0,
+        "coupon_out_of_range": 0,
+        "coupon_parser_crash": 0,
+        "express_zero_division": 0,
+        "bad_signature": 10,
+        "note_too_long": 4,
+        "sqli_error": 8,
+        "order_ok": 10
+      },
+      "first_interesting": [
+        313,
+        null,
+        400,
+        186,
+        420,
+        329,
+        538,
+        275,
+        605,
+        null
+      ]
+    },
+    "shop_docs": {
+      "mean_found": 11.3,
+      "min": 10,
+      "max": 12,
+      "runs_finding_each_of_10": {
+        "missing_fields": 10,
+        "bad_type": 10,
+        "bad_email": 10,
+        "bad_country": 10,
+        "bad_postal": 10,
+        "bad_quantity": 10,
+        "bad_shipping": 10,
+        "bad_coupon": 10,
+        "unknown_coupon": 3,
+        "coupon_out_of_range": 0,
+        "coupon_parser_crash": 0,
+        "express_zero_division": 0,
+        "bad_signature": 10,
+        "note_too_long": 4,
+        "sqli_error": 6,
+        "order_ok": 10
+      },
+      "first_interesting": [
+        315,
+        null,
+        531,
+        184,
+        281,
+        325,
+        706,
+        null,
+        null,
+        null
+      ]
+    },
+    "tripwire_and_unexpected_exceptions": "none observed"
+  }
+}
